@@ -64,7 +64,7 @@ header {
       line-height: 150%;
       outline-color: transparent;
       transition: all 0.2s ease-in-out;
-      padding: 10px 20px;
+      padding: 10px 30px;
       cursor: pointer;
     }
 
@@ -77,8 +77,13 @@ header {
     .register-as-artisan {
       border-radius: 4px;
       color: $white-color;
-      background: #10be65;
+      background: $secondary-color;
       border: transparent;
+      transition: all 0.2s ease-in-out;
+
+      &:hover{
+        background-color: $primary-color;
+    }
     }
   }
 }
