@@ -163,18 +163,19 @@ $main-font: "DM Sans", sans-serif;
             line-height: normal;
           }
         }
-        .menu{
-          .close-menu{
+        .menu {
+          .close-menu {
             font-size: 22px;
           }
         }
       }
     }
-    .mobile-nav{
+    .mobile-nav {
       display: flex;
       flex-direction: column;
       row-gap: 30px;
       width: 100%;
+      margin: 0 auto;
       padding: 30px 20px;
       position: absolute;
       background-color: $white-color;
@@ -183,7 +184,7 @@ $main-font: "DM Sans", sans-serif;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 100;
 
-      a{
+      a {
         color: $primary-color;
         text-decoration: none;
         font-family: $main-font;
@@ -193,10 +194,14 @@ $main-font: "DM Sans", sans-serif;
         line-height: 150%;
         transition: all 0.2s ease-in-out;
       }
-      button{
+      button {
         color: $primary-color;
         font-family: $main-font;
         background-color: $white-color;
+        border-radius: 6px;
+        border: 1px solid rgba(20, 20, 20, 0.1);
+        background: #fff;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
         font-size: 14px;
         font-style: normal;
         font-weight: 500;
