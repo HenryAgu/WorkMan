@@ -81,9 +81,32 @@ header {
       border: transparent;
       transition: all 0.2s ease-in-out;
 
-      &:hover{
+      &:hover {
         background-color: $primary-color;
+      }
     }
+  }
+}
+
+// Responsiveness starts here
+@media (max-width: 1114px) {
+  header {
+    .logo {
+      h3 {
+        font-size: 15px;
+      }
+    }
+    nav {
+      column-gap: 20px;
+
+      a {
+        font-size: 14px;
+      }
+    }
+    .right_nav {
+      button {
+        font-size: 14px;
+      }
     }
   }
 }

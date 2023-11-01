@@ -57,6 +57,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+      height: 60px;
 
       .search-box {
         display: flex;
@@ -106,6 +107,65 @@
   .right-hero {
     img {
       width: 100%;
+    }
+  }
+}
+
+
+// Responsiveness starts here
+@media (max-width: 1280px) {
+  .hero{
+    .left-hero{
+      .hero-search{
+        .search-box{
+          width: 65%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px){
+  .hero{
+    .left-hero{
+      .hero-header {
+        margin: 20px 0;
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      .hero-body {
+        margin: 20px 0;
+        p {
+          font-size: 15px;
+        }
+      }
+
+      .hero-trusted {
+        column-gap: 10px;
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .hero-search {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+  
+        .search-box {
+          input {
+            font-size: 12px;
+          }
+        }
+  
+        button {
+          padding: 18px 30px;
+          font-size: 12px;
+        }
+      }
     }
   }
 }
