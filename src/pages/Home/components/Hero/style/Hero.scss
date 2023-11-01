@@ -194,6 +194,11 @@
 @media screen and (max-width: 640px) {
   .hero {
     .left-hero {
+      .hero-header{
+        h1{
+          font-size: 28px;
+        }
+      }
       .hero-trusted {
         img {
           width: 37.809px;
