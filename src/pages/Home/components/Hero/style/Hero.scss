@@ -96,9 +96,9 @@
         font-weight: 500;
         transition: all 0.2s ease-in-out;
 
-        &:hover{
-            background-color: $primary-color;
-            border: 1px solid $primary-color;
+        &:hover {
+          background-color: $primary-color;
+          border: 1px solid $primary-color;
         }
       }
     }
@@ -111,13 +111,12 @@
   }
 }
 
-
 // Responsiveness starts here
 @media (max-width: 1280px) {
-  .hero{
-    .left-hero{
-      .hero-search{
-        .search-box{
+  .hero {
+    .left-hero {
+      .hero-search {
+        .search-box {
           width: 65%;
         }
       }
@@ -125,9 +124,9 @@
   }
 }
 
-@media (max-width: 1024px){
-  .hero{
-    .left-hero{
+@media (max-width: 1024px) {
+  .hero {
+    .left-hero {
       .hero-header {
         margin: 20px 0;
         h1 {
@@ -145,7 +144,7 @@
       .hero-trusted {
         column-gap: 10px;
         p {
-          font-size: 14px;
+          font-size: 10px;
         }
       }
 
@@ -154,16 +153,60 @@
         align-items: center;
         width: 100%;
         height: 60px;
-  
+
         .search-box {
           input {
-            font-size: 12px;
+            font-size: 10px;
           }
         }
-  
+
         button {
           padding: 18px 30px;
           font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+  .hero {
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 50px;
+
+    .left-hero {
+      width: 100%;
+      .hero-header {
+        margin: 0;
+      }
+      .hero-search {
+        .search-box {
+          width: 75%;
+        }
+      }
+    }
+  }
+}
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+  .hero {
+    .left-hero {
+      .hero-trusted {
+        img {
+          width: 37.809px;
+          height: 16.204px;
+        }
+      }
+      .hero-search {
+        width: 100vw;
+        .search-box {
+          width: 50%;
+        }
+        button {
+          padding: 18px 25px;
         }
       }
     }
