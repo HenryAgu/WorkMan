@@ -1,11 +1,24 @@
+import { useState } from "react";
 // stylesheet
 import "./style/Navbar.scss";
 
-// images
-import Logo from "./images/Logo.svg";
+// navlink
 import { NavLink } from "react-router-dom";
 
+// react icons
+import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
+
+// images
+import Logo from "./images/Logo.svg";
+import Menu from "./images/menu.svg";
+
 const Navbar = () => {
+  const [openNav, setOpenNav] = useState();
+
+  // handle navbar
+  const handleNavbar = () => {
+    setOpenNav(!openNav);
+  }
   return (
     <div className="navbar">
       <header>
@@ -28,7 +41,28 @@ const Navbar = () => {
             <button className="register-as-artisan">Become an Artisan</button>
           </NavLink>
         </div>
+        <div className="mobile-right">
+          <NavLink to="">
+            <div className="mobile-register-artisan">
+              <AiOutlinePlus className="plus-icon" />
+              <h4>Artisan</h4>
+            </div>
+          </NavLink>
+          <div className="menu" onClick={handleNavbar}>
+            {openNav ? <AiOutlineClose className="close-menu"/> : <img src={Menu} alt="menu" />}
+          </div>
+        </div>
       </header>
+      {openNav ? (
+        <div className="mobile-nav">
+          <NavLink to="">Start a search</NavLink>
+          <NavLink to="">Our artisans</NavLink>
+          <NavLink to="">How it works</NavLink>
+          <NavLink to="">
+            <button className="login">Log in</button>
+          </NavLink>
+        </div>
+      ) : null}
     </div>
   );
 };
