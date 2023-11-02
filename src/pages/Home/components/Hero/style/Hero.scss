@@ -5,6 +5,7 @@
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 100px;
   color: $primary-color;
   font-family: $main-font;
 
@@ -175,6 +176,7 @@
     flex-direction: column;
     column-gap: 0;
     row-gap: 50px;
+    margin-bottom: 50px;
 
     .left-hero {
       width: 100%;
