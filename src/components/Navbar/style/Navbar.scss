@@ -173,8 +173,9 @@ $main-font: "DM Sans", sans-serif;
     .mobile-nav {
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
       row-gap: 30px;
-      width: 100%;
+      width: 89%;
       margin: 0 auto;
       padding: 30px 20px;
       position: absolute;
