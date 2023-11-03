@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 // components
 import Hero from "./components/Hero/Hero";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
+import Testimonial from "./components/Testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -44,6 +45,7 @@ const Home = () => {
       <div style={{width: "90%", margin: "30px auto"}}>
         <Hero/>
         <HowItWorks/>
+        <Testimonial/>
       </div>
     </>
   );
