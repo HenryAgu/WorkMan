@@ -1,0 +1,55 @@
+@import "../../../../../components/Navbar/style/Navbar.scss";
+
+.meet-artisans {
+  width: 90%;
+  margin: 100px auto;
+
+  .meet-artisans-header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    text-align: center;
+
+    h1 {
+      color: $primary-color;
+      overflow: hidden;
+      font-family: $main-font;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 48px; /* 106.667% */
+    }
+
+    h4 {
+      color: var(--gray-scale-700, #464d61);
+      font-family: $main-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 150% */
+    }
+  }
+}
+
+// Responsiveness starts here
+@media screen and (max-width: 640px) {
+  .meet-artisans {
+    margin: 50px auto;
+
+    .meet-artisans-header {
+      text-align: left;
+      row-gap: 0;
+
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 150%;
+      }
+
+      h4 {
+        font-size: 13px;
+        line-height: 24px;
+      }
+    }
+  }
+}

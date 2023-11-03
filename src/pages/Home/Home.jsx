@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Hero from "./components/Hero/Hero";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Testimonial from "./components/Testimonial/Testimonial";
+import MeetArtisans from "./components/MeetArtisans/MeetArtisans";
 
 const Home = () => {
   return (
@@ -42,10 +43,11 @@ const Home = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div style={{width: "90%", margin: "30px auto"}}>
+      <div style={{margin: "30px auto"}}>
         <Hero/>
         <HowItWorks/>
         <Testimonial/>
+        <MeetArtisans/>
       </div>
     </>
   );
