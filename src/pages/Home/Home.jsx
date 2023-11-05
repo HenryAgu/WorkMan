@@ -43,7 +43,7 @@ const Home = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div style={{margin: "30px auto"}}>
+      <div style={{marginTop: "30px"}}>
         <Hero/>
         <HowItWorks/>
         <Testimonial/>
