@@ -1,0 +1,92 @@
+@import "../../Navbar/style/Navbar.scss";
+footer {
+  background-color: $white-color;
+  width: 100%;
+  margin: 30px auto;
+
+  .inner-footer {
+    display: flex;
+    align-items: center;
+    column-gap: 200px;
+    width: 90%;
+    margin: 0 auto;
+
+    .left-footer {
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+
+        img {
+          width: 71px;
+          height: 48.494px;
+        }
+
+        h1 {
+          color: $primary-color;
+          font-family: $main-font;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 150%; /* 36px */
+        }
+      }
+    }
+
+    .right-footer {
+      nav {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+
+        a {
+          color: $primary-color;
+          font-family: $main-font;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 24px */
+        }
+      }
+    }
+  }
+}
+
+// Responsiveness starts here
+@media screen and (max-width: 991px) {
+  footer {
+    .inner-footer {
+      column-gap: 0;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  footer {
+    .inner-footer {
+      .left-footer {
+        .footer-logo {
+            column-gap: 5px;
+          img {
+            width: 43.923px;
+            height: 30px;
+          }
+          h1{
+            font-size: 15px;
+          }
+        }
+      }
+      .right-footer{
+        nav{
+            column-gap: 15px;
+
+            a{
+                font-size: 10px;
+                line-height: normal;
+            }
+        }
+      }
+    }
+  }
+}

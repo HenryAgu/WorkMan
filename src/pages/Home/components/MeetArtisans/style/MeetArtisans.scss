@@ -82,6 +82,10 @@
           }
 
           .right-artisan-info {
+            button {
+              outline: transparent;
+              border: none;
+            }
             img {
               width: 24px;
               height: 24px;
@@ -89,6 +93,19 @@
             }
           }
         }
+      }
+    }
+
+    .see-more-artisans {
+      margin-top: 50px;
+
+      h3 {
+        text-align: center;
+        font-family: $main-font;
+        font-size: 16px;
+        color: $primary-color;
+        font-style: normal;
+        font-weight: 700;
       }
     }
   }
@@ -162,6 +179,11 @@
               }
             }
           }
+        }
+      }
+      .see-more-artisans {
+        h3 {
+          font-size: 14px;
         }
       }
     }

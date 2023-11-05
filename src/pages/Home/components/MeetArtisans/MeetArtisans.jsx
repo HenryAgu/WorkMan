@@ -15,6 +15,7 @@ import Artisan8 from "./images/Artisan8.png";
 import Artisan9 from "./images/Artisan9.png";
 import likedIcon from "./images/liked-heart.svg";
 import defaultLikeIcon from "./images/unliked-heart.svg";
+import { NavLink } from "react-router-dom";
 
 const MeetArtisans = () => {
   const [likeIcon, setLikeIcon] = useState("");
@@ -74,9 +75,10 @@ const MeetArtisans = () => {
       artisanRole: "Web Developer",
     },
   ];
-  const handleLike = () =>{
+  const handleLike = (index) => {
     setLikeIcon(!likeIcon);
-  }
+    console.log(`i am number ${index}`);
+  };
   return (
     <div className="meet-artisans">
       <div className="inner-meet-artisans">
@@ -85,8 +87,8 @@ const MeetArtisans = () => {
           <h4>Discover the Makers Behind the Magic: Meet Our Artisans</h4>
         </div>
         <div className="meet-artisans-body">
-          {artisanInfo.map((artisan) => (
-            <div className="artisan-card">
+          {artisanInfo.map((artisan, index) => (
+            <div className="artisan-card" key={index}>
               <img src={artisan.artisanImage} alt="" />
               <div className="artisan-info">
                 <div className="left-artisan-info">
@@ -94,15 +96,27 @@ const MeetArtisans = () => {
                   <p>{artisan.artisanRole}</p>
                 </div>
                 <div className="right-artisan-info">
-                  {likeIcon ? (
-                    <img src={likedIcon} alt="liked" onClick={handleLike}/>
-                  ) : (
-                    <img src={defaultLikeIcon} alt="default" onClick={handleLike}/>
-                  )}
+                  <button onClick={()=>handleLike(index)}>
+                    {likeIcon ? (
+                      <img
+                        src={likedIcon}
+                        alt="liked"
+
+                      />
+                    ) : (
+                      <img
+                        src={defaultLikeIcon}
+                        alt="default"
+                      />
+                    )}
+                  </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+        <div className="see-more-artisans">
+          <NavLink><h3>See More Artisans</h3></NavLink>
         </div>
       </div>
     </div>
