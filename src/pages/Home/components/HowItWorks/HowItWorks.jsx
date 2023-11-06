@@ -21,7 +21,7 @@ import numberSix from "./images/number-six.svg";
 const HowItWorks = () => {
   return (
     <>
-      <div className="how-it-works">
+      <div className="how-it-works" id="how-it-works">
         <div className="how-it-works-header">
           <h1>Here Is How WorkMan Works</h1>
           <h4>

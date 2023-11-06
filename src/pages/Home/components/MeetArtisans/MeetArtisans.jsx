@@ -80,7 +80,7 @@ const MeetArtisans = () => {
     console.log(`i am number ${index}`);
   };
   return (
-    <div className="meet-artisans">
+    <div className="meet-artisans" id="our-artisans">
       <div className="inner-meet-artisans">
         <div className="meet-artisans-header">
           <h1>Meet Our Artisans</h1>

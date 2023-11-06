@@ -6,6 +6,8 @@ import Hero from "./components/Hero/Hero";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Testimonial from "./components/Testimonial/Testimonial";
 import MeetArtisans from "./components/MeetArtisans/MeetArtisans";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -43,11 +45,13 @@ const Home = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div style={{marginTop: "30px"}}>
+      <div>
+        <Navbar/>
         <Hero/>
         <HowItWorks/>
         <Testimonial/>
         <MeetArtisans/>
+        <Footer/>
       </div>
     </>
   );

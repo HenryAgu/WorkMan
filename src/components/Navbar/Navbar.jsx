@@ -30,8 +30,8 @@ const Navbar = () => {
         </div>
         <nav activeClassName="active">
           <NavLink to="">Start a search</NavLink>
-          <NavLink to="">Our artisans</NavLink>
-          <NavLink to="">How it works</NavLink>
+          <a href="#our-artisans">Our artisans</a>
+          <a href="#how-it-works">How it works</a>
         </nav>
         <div className="right_nav">
           <NavLink to="">
@@ -55,10 +55,10 @@ const Navbar = () => {
       </header>
       {openNav ? (
         <div className="mobile-nav">
-          <NavLink to="">Start a search</NavLink>
-          <NavLink to="">Our artisans</NavLink>
-          <NavLink to="">How it works</NavLink>
-          <NavLink to="">
+          <NavLink to="" onClick={()=> setOpenNav(false)}>Start a search</NavLink>
+          <a href="#our-artisans" onClick={()=> setOpenNav(false)}>Our artisans</a>
+          <a href="#how-it-works" onClick={()=> setOpenNav(false)}>How it works</a>
+          <NavLink to="" onClick={()=> setOpenNav(false)}>
             <button className="login">Log in</button>
           </NavLink>
         </div>

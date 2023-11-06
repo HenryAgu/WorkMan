@@ -1,0 +1,101 @@
+@import "../../../../../components//Navbar/style/Navbar.scss";
+
+.find-artisan-container {
+  .find-artisan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left-find-artisan-header {
+      .logo {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+      }
+      h1 {
+        color: $primary-color;
+        font-family: $main-font;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 36px */
+      }
+    }
+    .right-find-artisan-header {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      .avatar {
+        width: 69px;
+        height: 69px;
+      }
+      .drop-down {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .artisan-header-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 15px;
+    position: absolute;
+    right: 80px;
+    top: 16vh;
+    width: 325px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fafafa;
+    box-shadow: 0px 1px 119px 6px rgba(4, 14, 9, 0.16);
+
+    .close-user-modal-mobile{
+        display: none;
+        // color: rgba(20, 20, 20, 0.7);
+        // font-family: $main-font;
+        // font-size: 16px;
+        // display: flex;
+        // margin-left: 20vw;
+        // margin-bottom: 10px;
+    }
+
+    .user-modal-header {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      h4 {
+        color: rgba(20, 20, 20, 0.7);
+        font-family: $main-font;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 20.266px; /* 126.661% */
+      }
+    }
+
+    .log-out{
+        margin-top: 20px;
+        button{
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            outline-color: transparent;
+            background-color: transparent;
+            cursor: pointer;
+            border: 1px solid rgba(20, 20, 20, 0.7);
+            border-radius: 25px;
+            padding: 12px 30px;
+        }
+    }
+  }
+
+}

@@ -35,7 +35,7 @@ const Hero = () => {
             <img src={searchIcon} alt="icon" />
             <input type="text" placeholder="What position are you looking for ?"/>
           </div>
-          <NavLink to="">
+          <NavLink to="/find-artisans">
             <button>Find Artisan</button>
           </NavLink>
         </div>
