@@ -11,6 +11,7 @@ import MenuIcon from "./images/menu.svg";
 
 // react icon
 import { AiOutlineClose } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const FindArtisanHeader = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,7 +23,9 @@ const FindArtisanHeader = () => {
             <img src={MenuIcon} alt="Menu" />
           </div>
           <div className="logo">
-            <img src={Logo} alt="Logo" />
+            <NavLink to="/">
+              <img src={Logo} alt="Logo" />
+            </NavLink>
             <h1>WorkMan</h1>
           </div>
         </div>

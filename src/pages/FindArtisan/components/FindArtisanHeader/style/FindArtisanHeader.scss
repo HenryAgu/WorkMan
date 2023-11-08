@@ -188,7 +188,7 @@
   .find-artisan-container {
     .artisan-header-modal {
       width: 260px;
-      top: 13vh;
+      top: 12vh;
       right: 20px;
       padding: 20px;
 
@@ -204,6 +204,7 @@
         h4{
           font-size: 15px;
           line-height: 16.213px;
+          overflow: hidden;
         }
       }
 
