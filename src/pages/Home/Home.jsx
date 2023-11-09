@@ -45,7 +45,7 @@ const Home = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div>
+      <div id="start-search">
         <Navbar/>
         <Hero/>
         <HowItWorks/>

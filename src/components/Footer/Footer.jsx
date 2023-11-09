@@ -11,15 +11,17 @@ const Footer = () => {
       <div className="inner-footer">
         <div className="left-footer">
           <div className="footer-logo">
-            <img src={Logo} alt="Logo" />
+            <NavLink to="/">
+              <img src={Logo} alt="Logo" />
+            </NavLink>
             <h1>WorkMan</h1>
           </div>
         </div>
         <div className="right-footer">
           <nav>
-            <NavLink>Start a search</NavLink>
-            <NavLink>Our artisans</NavLink>
-            <NavLink>How it works</NavLink>
+            <a href="#start-search">Start a search</a>
+            <a href="#our-artisans">Our artisans</a>
+            <a href="#how-it-works">How it works</a>
           </nav>
         </div>
       </div>
