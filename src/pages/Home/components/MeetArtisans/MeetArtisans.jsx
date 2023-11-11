@@ -18,8 +18,7 @@ import defaultLikeIcon from "./images/unliked-heart.svg";
 import { NavLink } from "react-router-dom";
 
 const MeetArtisans = () => {
-  const [likeIcon, setLikeIcon] = useState("");
-  const artisanInfo = [
+  const [artisanInfo, setArtisanInfo] = useState([
     {
       id: 1,
       artisanImage: Artisan1,
@@ -74,10 +73,13 @@ const MeetArtisans = () => {
       artisanName: "Agu Henry",
       artisanRole: "Web Developer",
     },
-  ];
-  const handleLike = (index) => {
-    setLikeIcon(!likeIcon);
-    console.log(`i am number ${index}`);
+  ]);
+  const handleLike = (artisanId) => {
+    if (artisanInfo.includes(artisanId)) {
+      setArtisanInfo(artisanInfo.filter(id => id !== artisanId));
+    } else {
+      setArtisanInfo([...artisanInfo, artisanId]);
+    }
   };
   return (
     <div className="meet-artisans" id="our-artisans">
@@ -87,8 +89,8 @@ const MeetArtisans = () => {
           <h4>Discover the Makers Behind the Magic: Meet Our Artisans</h4>
         </div>
         <div className="meet-artisans-body">
-          {artisanInfo.map((artisan, index) => (
-            <div className="artisan-card" key={index}>
+          {artisanInfo.map((artisan) => (
+            <div className="artisan-card" key={artisan.id}>
               <img src={artisan.artisanImage} alt="" />
               <div className="artisan-info">
                 <div className="left-artisan-info">
@@ -96,18 +98,11 @@ const MeetArtisans = () => {
                   <p>{artisan.artisanRole}</p>
                 </div>
                 <div className="right-artisan-info">
-                  <button onClick={()=>handleLike(index)}>
-                    {likeIcon ? (
-                      <img
-                        src={likedIcon}
-                        alt="liked"
-
-                      />
+                  <button onClick={() => handleLike(artisan.id)}>
+                    {artisanInfo.includes(artisan.id) ? (
+                      <img src={likedIcon} alt="liked" />
                     ) : (
-                      <img
-                        src={defaultLikeIcon}
-                        alt="default"
-                      />
+                      <img src={defaultLikeIcon} alt="unliked" />
                     )}
                   </button>
                 </div>
@@ -116,7 +111,9 @@ const MeetArtisans = () => {
           ))}
         </div>
         <div className="see-more-artisans">
-          <NavLink><h3>See More Artisans</h3></NavLink>
+          <NavLink>
+            <h3>See More Artisans</h3>
+          </NavLink>
         </div>
       </div>
     </div>
