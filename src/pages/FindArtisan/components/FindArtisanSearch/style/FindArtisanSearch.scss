@@ -36,6 +36,11 @@
       border: 1px solid rgba(20, 20, 20, 0.1);
       background: $white-color;
       padding: 15px;
+
+      img {
+        width: 17.25px;
+        height: 17.25px;
+      }
       input {
         width: 100%;
         outline-color: transparent;
@@ -72,55 +77,61 @@
 
 // responsiveness starts here
 @media (max-width: 1024px) {
-    .find-artisan-search{
-        .find-artisan-search-box{
-            button{
-                width: 28%;
-            }
-        }
+  .find-artisan-search {
+    .find-artisan-search-box {
+      button {
+        width: 28%;
+      }
     }
+  }
 }
 
 /* Medium Screens */
 @media (max-width: 991px) {
-    .find-artisan-search{
-        .find-artisan-search-header{
-            text-align: left;
-        }
-        .find-artisan-search-box{
-            margin-top: 25px;
-            button{
-                width: 35%;
-            }
-        }
+  .find-artisan-search {
+    .find-artisan-search-header {
+      text-align: left;
     }
+    .find-artisan-search-box {
+      margin-top: 25px;
+      button {
+        width: 35%;
+      }
+    }
+  }
 }
 
 /* Small Screens */
 @media screen and (max-width: 640px) {
-    .find-artisan-search{
-        margin-top: 0;
-        .find-artisan-search-header{
-            text-align: left;
-            h1{
-                font-size: 30px;
-            }
-        }
-        .find-artisan-search-box{
-            margin-top: 25px;
-            .search-box{
-                padding: 18px;
-
-                input{
-                    font-size: 13px;
-                    font-weight: 400;
-                }
-            }
-            button{
-                width: 50%;
-                padding: 20px 10px;
-                font-size: 13px;
-            }
-        }
+  .find-artisan-search {
+    margin-top: 0;
+    .find-artisan-search-header {
+      text-align: left;
+      h1 {
+        font-size: 30px;
+      }
     }
+    .find-artisan-search-box {
+      margin-top: 25px;
+      .search-box {
+        padding: 18px 10px;
+        column-gap: 5px;
+
+        img {
+          width: 12px;
+          height: 12px;
+        }
+
+        input {
+          font-size: 13px;
+          font-weight: 400;
+        }
+      }
+      button {
+        width: 50%;
+        padding: 20px 10px;
+        font-size: 13px;
+      }
+    }
+  }
 }
