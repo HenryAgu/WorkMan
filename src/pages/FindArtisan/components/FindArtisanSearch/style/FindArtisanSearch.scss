@@ -1,0 +1,126 @@
+@import "../../../../../components//Navbar/style/Navbar.scss";
+
+.find-artisan-search {
+  margin-top: 25px;
+
+  .find-artisan-search-header {
+    text-align: center;
+
+    h1 {
+      color: $primary-color;
+      font-family: $main-font;
+      letter-spacing: 1px;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 84px */
+    }
+
+    span {
+      color: $secondary-color;
+    }
+  }
+
+  .find-artisan-search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      width: 90%;
+      border-radius: 4px 0px 0px 4px;
+      border: 1px solid rgba(20, 20, 20, 0.1);
+      background: $white-color;
+      padding: 15px;
+      input {
+        width: 100%;
+        outline-color: transparent;
+        border: transparent;
+        color: rgba(20, 20, 20, 0.5);
+        font-family: $main-font;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+      }
+    }
+    button {
+      width: 20%;
+      padding: 17px 50px;
+      border-radius: 0px 4px 4px 0px;
+      cursor: pointer;
+      border: 1px solid $secondary-color;
+      background-color: $secondary-color;
+      color: $white-color;
+      font-family: $main-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $primary-color;
+        border: 1px solid $primary-color;
+      }
+    }
+  }
+}
+
+// responsiveness starts here
+@media (max-width: 1024px) {
+    .find-artisan-search{
+        .find-artisan-search-box{
+            button{
+                width: 28%;
+            }
+        }
+    }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+    .find-artisan-search{
+        .find-artisan-search-header{
+            text-align: left;
+        }
+        .find-artisan-search-box{
+            margin-top: 25px;
+            button{
+                width: 35%;
+            }
+        }
+    }
+}
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+    .find-artisan-search{
+        margin-top: 0;
+        .find-artisan-search-header{
+            text-align: left;
+            h1{
+                font-size: 30px;
+            }
+        }
+        .find-artisan-search-box{
+            margin-top: 25px;
+            .search-box{
+                padding: 18px;
+
+                input{
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+            }
+            button{
+                width: 50%;
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+        }
+    }
+}

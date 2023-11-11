@@ -91,7 +91,7 @@ const MeetArtisans = () => {
         <div className="meet-artisans-body">
           {artisanInfo.map((artisan) => (
             <div className="artisan-card" key={artisan.id}>
-              <img src={artisan.artisanImage} alt="" />
+              <img src={artisan.artisanImage} alt="picture" />
               <div className="artisan-info">
                 <div className="left-artisan-info">
                   <h4>{artisan.artisanName}</h4>

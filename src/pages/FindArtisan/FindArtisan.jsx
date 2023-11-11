@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 // components
 import FindArtisanHeader from "./components/FindArtisanHeader/FindArtisanHeader";
+import FindArtisanSearch from "./components/FindArtisanSearch/FindArtisanSearch";
 
 const FindArtisan = () => {
   return (
@@ -42,6 +43,7 @@ const FindArtisan = () => {
       </Helmet>
       <div style={{ width: "90%", margin: "30px auto" }}>
         <FindArtisanHeader />
+        <FindArtisanSearch/>
       </div>
     </>
   );
