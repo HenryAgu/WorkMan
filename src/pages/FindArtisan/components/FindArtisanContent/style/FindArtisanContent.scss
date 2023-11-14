@@ -4,3 +4,24 @@
     column-gap: 30px;
     margin: 50px 0;
 }
+
+@media (max-width: 1024px) {
+    .find-artisan-content{
+        column-gap: 20px;
+    }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+    .find-artisan-content{
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+    .find-artisan-content{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+}

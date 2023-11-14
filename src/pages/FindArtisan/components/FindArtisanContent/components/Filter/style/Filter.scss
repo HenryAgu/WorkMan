@@ -78,3 +78,17 @@
     }
   }
 }
+
+
+@media (max-width: 1024px) {
+  .filter{
+    padding: 20px;
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+  .filter{
+    display: none;
+  }
+}
