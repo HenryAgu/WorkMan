@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import FindArtisanHeader from "./components/FindArtisanHeader/FindArtisanHeader";
 import FindArtisanSearch from "./components/FindArtisanSearch/FindArtisanSearch";
 import FindArtisanStat from "./components/FindArtisanStat/FindArtisanStat";
+import FindArtisanContent from "./components/FindArtisanContent/FindArtisanContent";
 
 const FindArtisan = () => {
   return (
@@ -46,6 +47,7 @@ const FindArtisan = () => {
         <FindArtisanHeader />
         <FindArtisanSearch/>
         <FindArtisanStat/>
+        <FindArtisanContent/>
       </div>
     </>
   );
