@@ -1,0 +1,123 @@
+@import "../../../../../components//Navbar/style/Navbar.scss";
+
+.category {
+  display: none;
+}
+.artisan-stat {
+  padding: 50px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .artisan-stat-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border-radius: 8px;
+    background: #f9fffc;
+
+    h3 {
+      color: #029d4e;
+      font-family: $main-font;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 32px; /* 160% */
+    }
+
+    .skill-info {
+      display: flex;
+      align-items: center;
+      column-gap: 80px;
+
+      .skill-rate {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+        p {
+          color: rgba(20, 20, 20, 0.7);
+          font-family: $main-font;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+
+      p {
+        color: rgba(20, 20, 20, 0.7);
+        font-family: $main-font;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+// responsiveness starts here
+@media (max-width: 1280px) {
+  .artisan-stat {
+    padding: 40px 20px;
+
+    .artisan-stat-card {
+      .skill-info {
+        column-gap: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .artisan-stat {
+    padding: 40px 10px;
+
+    .artisan-stat-card {
+      flex-direction: row;
+      column-gap: 10px;
+      h3 {
+        font-size: 15px;
+      }
+      .skill-info {
+        .skill-rate {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+  .category {
+    display: block;
+    padding: 20px 10px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    color: #141414;
+    font-family: $main-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 30px */
+  }
+  .artisan-stat {
+    padding: 0 10px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+
+    .artisan-stat-card {
+      .skill-info {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
