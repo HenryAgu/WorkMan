@@ -19,3 +19,18 @@
     }
   }
 }
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+  .artisan-profile {
+    .artisan-profile-nav {
+      img {
+        width: 12px;
+        height: 12px;
+      }
+      h4 {
+        font-size: 15px;
+      }
+    }
+  }
+}

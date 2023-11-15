@@ -10,6 +10,9 @@ import { NavLink } from "react-router-dom";
 // images
 import arrowIcon from "./images/arrow-left.svg";
 
+// components
+import ArtisanProfileHeader from "./components/ArtisanProfileHeader/ArtisanProfileHeader";
+
 const ArtisanProfile = () => {
   return (
     <div>
@@ -56,6 +59,7 @@ const ArtisanProfile = () => {
             <h4>Back</h4>
           </div>
         </NavLink>
+        <ArtisanProfileHeader/>
       </div>
     </div>
   );
