@@ -77,7 +77,7 @@ const Jobs = () => {
       </div>
       <div className="artisan-jobs-section">
         {artisanCards.map((artisanCard) => (
-          <NavLink>
+          <NavLink to="/artisan-profile">
             <div className="artisan-job-card" key={artisanCard.id}>
               <div className="left-artisan-job-card">
                 <img src={artisanCard.artisanImage} alt="artisan" />

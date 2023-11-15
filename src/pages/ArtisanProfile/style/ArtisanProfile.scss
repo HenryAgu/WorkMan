@@ -1,0 +1,21 @@
+.artisan-profile {
+  .artisan-profile-nav {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    h4 {
+      color: #38aa70;
+      font-family: Open Sans;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px; /* 222.222% */
+    }
+  }
+}
