@@ -1,8 +1,11 @@
+// stylesheet
 import "./style/Login.scss";
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className="login">
+      <p>Sign In</p>
+    </div>
   )
 }
 
