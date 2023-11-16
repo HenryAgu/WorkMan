@@ -12,6 +12,7 @@ import arrowIcon from "./images/arrow-left.svg";
 
 // components
 import ArtisanProfileHeader from "./components/ArtisanProfileHeader/ArtisanProfileHeader";
+import WorkPhotos from "./components/WorkPhotos/WorkPhotos";
 
 const ArtisanProfile = () => {
   return (
@@ -60,6 +61,7 @@ const ArtisanProfile = () => {
           </div>
         </NavLink>
         <ArtisanProfileHeader/>
+        <WorkPhotos/>
       </div>
     </div>
   );
