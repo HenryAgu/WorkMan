@@ -13,6 +13,7 @@ import arrowIcon from "./images/arrow-left.svg";
 // components
 import ArtisanProfileHeader from "./components/ArtisanProfileHeader/ArtisanProfileHeader";
 import WorkPhotos from "./components/WorkPhotos/WorkPhotos";
+import ArtisanReviews from "./components/ArtisanReviews/ArtisanReviews";
 
 const ArtisanProfile = () => {
   return (
@@ -62,6 +63,7 @@ const ArtisanProfile = () => {
         </NavLink>
         <ArtisanProfileHeader/>
         <WorkPhotos/>
+        <ArtisanReviews/>
       </div>
     </div>
   );

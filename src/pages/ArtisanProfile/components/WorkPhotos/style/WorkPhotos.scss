@@ -23,6 +23,11 @@
         width: 169.29px;
         height: 153.542px;
         border-radius: 4.921px;
+        transition: all 0.2s ease-in;
+
+        &:hover{
+          filter: grayscale(100%);
+        }
       }
     }
   }
@@ -45,6 +50,9 @@
 /* Small Screens */
 @media screen and (max-width: 640px) {
     .work-photos{
+      h2{
+        font-size: 18px;
+      }
         .work-photos-gallery{
             display: grid;
             grid-template-columns: repeat(2,1fr);

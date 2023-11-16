@@ -1,0 +1,105 @@
+.artisan-reviews {
+  margin: 50px 0;
+
+  .artisan-reviews-header {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    h3 {
+      color: #141414;
+      overflow: hidden;
+      font-family: DM Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+    }
+  }
+
+  .review-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 30px;
+
+    .review-card-header {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      .reviewer-image {
+        img {
+          width: 48.397px;
+          height: 49px;
+          border-radius: 50px;
+          background: lightgray 50% / cover no-repeat;
+        }
+      }
+
+      .reviewer-rate {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0;
+        p {
+          color: #141414;
+          font-family: Open Sans;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 40px; /* 222.222% */
+          margin-top: -10px;
+        }
+      }
+    }
+    p {
+      color: rgba(20, 20, 20, 0.7);
+      font-family: DM Sans;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 35px; /* 194.444% */
+    }
+  }
+}
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+  .artisan-reviews {
+    .artisan-reviews-header {
+      column-gap: 20px;
+      h3 {
+        font-size: 18px;
+      }
+      img {
+        width: 30%;
+      }
+    }
+    .review-card {
+      margin-top: 20px;
+
+      .review-card-header {
+        .reviewer-image {
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        .reviewer-rate {
+            img{
+                width: 65%;
+            }
+          p {
+            font-size: 15px;
+            line-height: 30px;
+          }
+        }
+      }
+
+      p{
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+  }
+}

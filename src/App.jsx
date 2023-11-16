@@ -11,11 +11,13 @@ import Home from "./pages/Home/Home";
 import FindArtisan from "./pages/FindArtisan/FindArtisan";
 import Login from "./pages/Login/Login";
 import ArtisanProfile from "./pages/ArtisanProfile/ArtisanProfile";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <main>
       <BrowserRouter>
+      <ScrollToTop/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/find-artisans" element={<FindArtisan/>} />
