@@ -1,0 +1,37 @@
+.login-header {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  img {
+    width: 71px;
+    height: 48.494px;
+  }
+
+  h3 {
+    color: #141414;
+    font-family: DM Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 36px */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .login-header {
+    justify-content: center;
+    align-items: baseline;
+    column-gap: 2px;
+    img {
+      width: 43.923px;
+      height: 30px;
+    }
+    h3 {
+      font-size: 15px;
+      line-height: normal;
+    }
+  }
+}

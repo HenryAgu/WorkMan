@@ -3,7 +3,7 @@ import "./style/ArtisanReviews.scss";
 
 // images
 import reviewersImages from "./images/reviewers.svg";
-import reviewer from "./images/reviewer.svg";
+import reviewer from "./images/reviewer.png";
 import rateIcon from "./images/rate.svg";
 
 const ArtisanReviews = () => {

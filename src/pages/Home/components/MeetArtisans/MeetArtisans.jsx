@@ -111,7 +111,7 @@ const MeetArtisans = () => {
           ))}
         </div>
         <div className="see-more-artisans">
-          <NavLink>
+          <NavLink to="/find-artisans">
             <h3>See More Artisans</h3>
           </NavLink>
         </div>
