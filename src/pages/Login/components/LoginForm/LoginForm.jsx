@@ -39,7 +39,7 @@ const LoginForm = () => {
         <div className="login-form-box">
           <div className="inner-login-form">
             <label htmlFor="">Email</label>
-            <input type="email" placeholder="" />
+            <input type="email" placeholder="" required/>
           </div>
           <div className="inner-login-form">
             <label htmlFor="" className="password">
@@ -49,7 +49,7 @@ const LoginForm = () => {
                 {showPassword ? "Show" : "Hide"}
               </button>
             </label>
-            <input type={showPassword ? "password" : "text"} placeholder="" />
+            <input type={showPassword ? "password" : "text"} placeholder="" required/>
           </div>
         </div>
         <button className="login-button">Login</button>
