@@ -1,0 +1,196 @@
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 7px 44px 0px rgba(0, 120, 240, 0.09),
+      0px 4px 27px 0px rgba(20, 20, 20, 0.02);
+    width: 30%;
+    padding: 50px;
+    margin: 0 auto;
+
+    .sign-up-logo {
+      text-align: center;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .sign-up-header {
+      text-align: center;
+
+      h1 {
+        color: rgba(20, 20, 20, 0.7);
+        text-align: center;
+        font-family: DM Sans;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+
+    .sign-up-options {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 20px;
+      row-gap: 20px;
+      width: 100%;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+        padding: 16.5px 40.5px 15.5px 40.5px;
+        border-radius: 40px;
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        background: #fff;
+        cursor: pointer;
+        outline-color: transparent;
+        width: 100%;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+        p {
+          color: #141414;
+          font-family: DM Sans;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+
+    .policy {
+      margin-top: 20px;
+
+      p {
+        color: rgba(102, 102, 102, 0.7);
+        text-align: center;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 29px; /* 161.111% */
+      }
+
+      span {
+        text-decoration-line: underline;
+        color: #333;
+      }
+    }
+
+    .sign-in {
+      margin-top: 50px;
+      text-align: center;
+
+      p {
+        color: #666;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      span {
+        color: #10be65;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Responsiveness starts here
+@media (max-width: 1280px) {
+  .sign-up-form {
+    form {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .sign-up-form {
+    form {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .sign-up-form {
+    form {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .sign-up-form {
+    margin-bottom: 0;
+
+    form {
+      width: 80%;
+      padding: 30px;
+      .sign-up-logo {
+        img {
+          width: 73.21px;
+          height: 73.21px;
+        }
+      }
+
+      .sign-up-header {
+        h1 {
+          font-size: 24px;
+        }
+      }
+
+      .sign-up-options {
+        button {
+          padding: 14.061px 46.77px 14.793px 47.502px;
+
+          img {
+            width: 18.494px;
+            height: 18.494px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+      .policy {
+        margin-top: 10px;
+
+        p {
+          font-size: 12px;
+          line-height: 28px; /* 161.111% */
+        }
+      }
+      .sign-in {
+        margin-top: 50px;
+        text-align: center;
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
