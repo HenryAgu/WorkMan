@@ -29,7 +29,7 @@ const SignUpForm = () => {
             <img src={FacebookIcon} alt="icon" />
             <p>Continue with Facebook</p>
           </button>
-          <NavLink>
+          <NavLink to="/sign-up/sign-up-with-email">
             <button>
               <img src={EmailIcon} alt="icon" />
               <p>Sign up with email</p>
