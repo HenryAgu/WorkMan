@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import LoginHeader from "./components/LoginHeader/LoginHeader";
 import LoginForm from "./components/LoginForm/LoginForm";
 
-const Login = () => {
+const Login = ({setUser}) => {
   return (
     <>
       {/* React Helmet */}
@@ -46,7 +46,7 @@ const Login = () => {
       </Helmet>
       <div className="customer-login">
         <LoginHeader />
-        <LoginForm />
+        <LoginForm setUser={setUser}/>
       </div>
     </>
   );

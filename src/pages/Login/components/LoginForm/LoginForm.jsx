@@ -10,19 +10,38 @@ import { BiShow } from "react-icons/bi";
 // images
 import LoginImage from "./images/LoginImage.svg";
 import GoogleImage from "./images/Google.svg";
-import { NavLink } from "react-router-dom";
 
-const LoginForm = () => {
+// React router
+import { NavLink, useNavigate } from "react-router-dom";
+
+const LoginForm = ({ setUser }) => {
   const [showPassword, setShowPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const navigate = useNavigate();
 
   // handlePassword
   const handlePassword = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
+
+  // handle form submission
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email !== "" && password !== "") {
+      setUser({ email: email, password: password });
+      console.log("Logged In!");
+      navigate("/find-artisans");
+    } else {
+      setErrorMessage(true);
+    }
+  };
   return (
     <div className="login-form">
-      <form>
+      <form onSubmit={handleLogin}>
         <img src={LoginImage} alt="Login form" className="login-image" />
         <div className="login-header">
           <h1>Sign in</h1>
@@ -39,7 +58,13 @@ const LoginForm = () => {
         <div className="login-form-box">
           <div className="inner-login-form">
             <label htmlFor="">Email</label>
-            <input type="email" placeholder="" required/>
+            <input
+              type="email"
+              value={email}
+              placeholder=""
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div className="inner-login-form">
             <label htmlFor="" className="password">
@@ -49,7 +74,13 @@ const LoginForm = () => {
                 {showPassword ? "Show" : "Hide"}
               </button>
             </label>
-            <input type={showPassword ? "password" : "text"} placeholder="" required/>
+            <input
+              value={password}
+              type={showPassword ? "password" : "text"}
+              placeholder=""
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
         </div>
         <button className="login-button">Login</button>

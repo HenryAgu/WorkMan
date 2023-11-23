@@ -1,3 +1,4 @@
+import { useState } from "react";
 // stylesheet
 import "./App.scss";
 
@@ -13,20 +14,32 @@ import ScrollToTop from "./ScrollToTop";
 import SignUp from "./pages/SignUp/SignUp";
 import SignUpWithEmail from "./pages/SignUp/component/SignUpForm/components/SignUpWithEmail/SignUpWithEmail";
 import RegisterArtisan from "./pages/RegisterArtisan/RegisterArtisan";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     <main>
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/find-artisans" element={<FindArtisan />} />
+          <Route
+            path="find-artisans"
+            element={
+              <ProtectedRoutes user={user}>
+                <FindArtisan />
+              </ProtectedRoutes>
+            }
+          />
           <Route path="/artisan-profile" element={<ArtisanProfile />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser}/>} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-up/sign-up-with-email" element={<SignUpWithEmail />} />
-          <Route path="/regsiter-artisan" element={<RegisterArtisan/>}/>
+          <Route
+            path="/sign-up/sign-up-with-email"
+            element={<SignUpWithEmail />}
+          />
+          <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
         </Routes>
       </BrowserRouter>
     </main>
