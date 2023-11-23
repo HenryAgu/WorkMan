@@ -12,6 +12,7 @@ import ArtisanProfile from "./pages/ArtisanProfile/ArtisanProfile";
 import ScrollToTop from "./ScrollToTop";
 import SignUp from "./pages/SignUp/SignUp";
 import SignUpWithEmail from "./pages/SignUp/component/SignUpForm/components/SignUpWithEmail/SignUpWithEmail";
+import RegisterArtisan from "./pages/RegisterArtisan/RegisterArtisan";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-up/sign-up-with-email" element={<SignUpWithEmail />} />
+          <Route path="/regsiter-artisan" element={<RegisterArtisan/>}/>
         </Routes>
       </BrowserRouter>
     </main>

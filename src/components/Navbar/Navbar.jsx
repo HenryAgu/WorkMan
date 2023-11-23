@@ -37,12 +37,12 @@ const Navbar = () => {
           <NavLink to="/login">
             <button className="login">Log in</button>
           </NavLink>
-          <NavLink to="">
+          <NavLink to="/regsiter-artisan">
             <button className="register-as-artisan">Become an Artisan</button>
           </NavLink>
         </div>
         <div className="mobile-right">
-          <NavLink to="">
+          <NavLink to="/regsiter-artisan">
             <div className="mobile-register-artisan">
               <AiOutlinePlus className="plus-icon" />
               <h4>Artisan</h4>

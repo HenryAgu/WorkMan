@@ -23,7 +23,7 @@ const SignUpWithEmail = () => {
   const handleConfirmPassword = (e) => {
     e.preventDefault();
     setShowConfirmPassword(!showConfirmPassword);
-  }
+  };
 
   return (
     <div className="sign-up-with-email">
@@ -43,7 +43,14 @@ const SignUpWithEmail = () => {
           </div>
           <div className="with-email-input">
             <label htmlFor="">Phone Number</label>
-            <input type="text" required />
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              placeholder="080 0000 0000"
+              required
+            />
           </div>
           <div className="with-email-input">
             <label htmlFor="">
