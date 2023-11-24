@@ -7,12 +7,12 @@ import { NavLink } from "react-router-dom";
 
 const LoginHeader = () => {
   return (
-    <div className="login-header">
-      <NavLink to="/">
+    <NavLink to="/">
+      <div className="login-header">
         <img src={Logo} alt="Logo" />
-      </NavLink>
-      <h3>WorkMan</h3>
-    </div>
+        <h3>WorkMan</h3>
+      </div>
+    </NavLink>
   );
 };
 

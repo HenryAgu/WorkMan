@@ -22,12 +22,12 @@ const FindArtisanHeader = () => {
           <div className="menu">
             <img src={MenuIcon} alt="Menu" />
           </div>
-          <div className="logo">
-            <NavLink to="/">
+          <NavLink to="/">
+            <div className="logo">
               <img src={Logo} alt="Logo" />
-            </NavLink>
-            <h1>WorkMan</h1>
-          </div>
+              <h1>WorkMan</h1>
+            </div>
+          </NavLink>
         </div>
         <div className="right-find-artisan-header">
           <img src={UserAvatar} className="avatar" alt="avatar" />

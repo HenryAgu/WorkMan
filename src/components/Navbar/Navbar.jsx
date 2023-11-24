@@ -18,16 +18,16 @@ const Navbar = () => {
   // handle navbar
   const handleNavbar = () => {
     setOpenNav(!openNav);
-  }
+  };
   return (
     <div className="navbar">
       <header>
-        <div className="logo">
-          <NavLink to="/">
+        <NavLink to="/">
+          <div className="logo">
             <img src={Logo} alt="Logo" />
-          </NavLink>
-          <h3>WorkMan</h3>
-        </div>
+            <h3>WorkMan</h3>
+          </div>
+        </NavLink>
         <nav activeClassName="active">
           <NavLink to="">Start a search</NavLink>
           <a href="#our-artisans">Our artisans</a>
@@ -49,16 +49,26 @@ const Navbar = () => {
             </div>
           </NavLink>
           <div className="menu" onClick={handleNavbar}>
-            {openNav ? <AiOutlineClose className="close-menu"/> : <img src={Menu} alt="menu" />}
+            {openNav ? (
+              <AiOutlineClose className="close-menu" />
+            ) : (
+              <img src={Menu} alt="menu" />
+            )}
           </div>
         </div>
       </header>
       {openNav ? (
         <div className="mobile-nav">
-          <NavLink to="" onClick={()=> setOpenNav(false)}>Start a search</NavLink>
-          <a href="#our-artisans" onClick={()=> setOpenNav(false)}>Our artisans</a>
-          <a href="#how-it-works" onClick={()=> setOpenNav(false)}>How it works</a>
-          <NavLink to="/login" onClick={()=> setOpenNav(false)}>
+          <NavLink to="" onClick={() => setOpenNav(false)}>
+            Start a search
+          </NavLink>
+          <a href="#our-artisans" onClick={() => setOpenNav(false)}>
+            Our artisans
+          </a>
+          <a href="#how-it-works" onClick={() => setOpenNav(false)}>
+            How it works
+          </a>
+          <NavLink to="/login" onClick={() => setOpenNav(false)}>
             <button className="login">Log in</button>
           </NavLink>
         </div>
