@@ -1,4 +1,5 @@
 # Workman
+![Frame 1000003687](https://github.com/HenryAgu/WorkMan/assets/74037448/92efea00-5794-44a1-b6f1-b60e63179011)
 
 Welcome to Workman! This website connects customers with skilled artisans in a simplified and efficient way. Find the right artisan for your needs.
 
