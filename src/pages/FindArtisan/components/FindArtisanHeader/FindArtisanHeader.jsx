@@ -7,6 +7,8 @@ import Logo from "./images/Logo.svg";
 import UserAvatar from "./images/user.png";
 import ArrowDownIcon from "./images/arrow-down.svg";
 import LogOutIcon from "./images/log-out.svg";
+import settingIcon from "./images/setting.svg";
+import forwardIcon from "./images/forward.svg";
 import MenuIcon from "./images/menu.svg";
 
 // react icon
@@ -52,6 +54,13 @@ const FindArtisanHeader = () => {
             <img src={UserAvatar} alt="avatar" />
             <h4>Henry Agu</h4>
           </div>
+          <NavLink to="/user-setting">
+            <div className="log-out settings">
+              <button>
+                <img src={settingIcon} alt="log out" /> <h4>Settings</h4>
+              </button>
+            </div>
+          </NavLink>
           <div className="log-out">
             <button>
               <img src={LogOutIcon} alt="log out" /> <h4>Logout</h4>

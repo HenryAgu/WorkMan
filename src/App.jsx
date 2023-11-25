@@ -15,6 +15,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import SignUpWithEmail from "./pages/SignUp/component/SignUpForm/components/SignUpWithEmail/SignUpWithEmail";
 import RegisterArtisan from "./pages/RegisterArtisan/RegisterArtisan";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import UserSetting from "./pages/UserSetting/UserSetting";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,13 +34,14 @@ function App() {
             }
           />
           <Route path="/artisan-profile" element={<ArtisanProfile />} />
-          <Route path="/login" element={<Login setUser={setUser}/>} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route
             path="/sign-up/sign-up-with-email"
             element={<SignUpWithEmail />}
           />
           <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
+          <Route path="/user-setting" element={<UserSetting />} />
         </Routes>
       </BrowserRouter>
     </main>

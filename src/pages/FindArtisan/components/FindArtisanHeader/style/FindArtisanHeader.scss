@@ -84,6 +84,10 @@
     }
 
     .log-out {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
       margin-top: 20px;
       button {
         display: flex;
@@ -113,6 +117,38 @@
 
         &:hover h4 {
           color: #a52a2a;
+        }
+      }
+    }
+    .settings{
+      button {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        outline-color: transparent;
+        background-color: transparent;
+        cursor: pointer;
+        border: 1px solid $white-color;
+        border-radius: 25px;
+        padding: 12px;
+        transition: all 0.2s ease-in;
+
+        h4 {
+          color: rgba(20, 20, 20, 0.7);
+          font-family: DM Sans;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 20.266px; /* 126.661% */
+        }
+
+        &:hover {
+          border: 1.5px solid #10BE65;
+          padding: 12px 20px;
+        }
+
+        &:hover h4 {
+          color: #10BE65;
         }
       }
     }
@@ -202,17 +238,17 @@
           width: 40px;
           height: 40px;
         }
-        h4{
+        h4 {
           font-size: 15px;
           line-height: 16.213px;
           overflow: hidden;
         }
       }
 
-      .log-out{
+      .log-out {
         margin-top: 10px;
-        button{
-          h4{
+        button {
+          h4 {
             font-size: 13px;
             line-height: 16.213px;
           }
