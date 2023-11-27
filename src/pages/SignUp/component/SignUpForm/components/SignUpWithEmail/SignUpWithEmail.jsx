@@ -3,6 +3,9 @@ import { useState } from "react";
 // stylesheet
 import "./style/SignUpWithEmail.scss";
 
+// React router
+import { NavLink } from "react-router-dom";
+
 // components
 import LoginHeader from "../../../../../Login/components/LoginHeader/LoginHeader";
 
@@ -75,7 +78,11 @@ const SignUpWithEmail = () => {
         </div>
 
         <button className="sign-up-button">Sign Up</button>
+        <div className="sign-in">
+          <p>Already have an account? <NavLink to="/login"><span>Log in</span></NavLink> </p>
+        </div>
       </form>
+ 
     </div>
   );
 };

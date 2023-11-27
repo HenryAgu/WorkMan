@@ -101,6 +101,27 @@
       outline-color: transparent;
       padding: 15px;
     }
+    .sign-in {
+      margin-top: 50px;
+      text-align: center;
+
+      p {
+        color: #666;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      span {
+        color: #10be65;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
 
@@ -163,6 +184,14 @@
         margin-top: 30px;
         font-size: 14px;
         padding: 12px 0;
+      }
+      .sign-in {
+        margin-top: 50px;
+        text-align: center;
+
+        p {
+          font-size: 14px;
+        }
       }
     }
   }
