@@ -61,6 +61,59 @@
       line-height: 35px; /* 194.444% */
     }
   }
+  .add-review {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 35%;
+    margin-top: 50px;
+    h2 {
+      color: #141414;
+      overflow: hidden;
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: DM Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+    }
+    textarea {
+      resize: none;
+      border-radius: 12px;
+      border: 1px solid rgba(20, 20, 20, 0.2);
+      padding: 18px 26px 34px 22px;
+      width: 89%;
+      height: 50px;
+      color: rgba(20, 20, 20, 0.7);
+      font-family: DM Sans;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px; /* 166.667% */
+    }
+    p {
+      color: #666;
+      font-family: DM Sans;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    button{
+      border-radius: 4px;
+      background: #10be65;
+      padding: 8px 20px 8px 16px;
+      color: var(--White, #fff);
+      font-family: DM Sans;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 150%; /* 24px */
+      cursor: pointer;
+      border: transparent;
+      outline-color: transparent;
+    }
+  }
 }
 
 /* Small Screens */
@@ -86,9 +139,10 @@
           }
         }
         .reviewer-rate {
-            img{
-                width: 65%;
-            }
+          img {
+            width: 65%;
+            height: 100%;
+          }
           p {
             font-size: 15px;
             line-height: 30px;
@@ -96,9 +150,32 @@
         }
       }
 
-      p{
+      p {
         font-size: 13px;
         line-height: 20px;
+      }
+    }
+    .add-review {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      width: 100%;
+      margin-top: 50px;
+      h2 {
+        font-size: 15px;
+      }
+      textarea {
+        width: 85%;
+        padding: 9.531px 13.694px 24.469px 11.375px;
+        width: 90%;
+        font-size: 13px;
+        line-height: 20px;
+      }
+      p {
+        font-size: 12px;
+      }
+      button{
+        font-size: 12px;
       }
     }
   }
