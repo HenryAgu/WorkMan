@@ -1,0 +1,90 @@
+@import "../../../../../components/Navbar/style/Navbar.scss";
+
+.admin-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $main-font;
+  height: 100vh;
+
+  form {
+    margin-top: 20px;
+    width: 30%;
+
+    .inner-admin-login {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      width: 100%;
+
+      label {
+        font-weight: 700;
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 18px;
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        outline-color: transparent;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      padding: 10px;
+      border-radius: 12px;
+      font-size: 18px;
+      border: transparent;
+      outline-color: transparent;
+      background: #10be65;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+// Responsiveness starts here
+// Responsiveness starts here
+@media screen and (max-width: 1024px) {
+  .admin-login {
+    form {
+      width: 35%;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .admin-login {
+    form {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .admin-login {
+    .admin-login-header {
+      h1 {
+        font-size: 16px;
+      }
+    }
+    form {
+      width: 90%;
+
+      .inner-admin-login{
+        label,input{
+            font-size: 14px;
+        }
+      }
+      button{
+        font-size: 14px;
+      }
+    }
+  }
+}

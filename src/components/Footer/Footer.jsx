@@ -24,6 +24,9 @@ const Footer = () => {
             <a href="#how-it-works">How it works</a>
           </nav>
         </div>
+        <div className="mobile-left-footer">
+          <NavLink to="/admin-login">Admin</NavLink>
+        </div>
       </div>
     </footer>
   );

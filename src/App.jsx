@@ -16,6 +16,9 @@ import SignUpWithEmail from "./pages/SignUp/component/SignUpForm/components/Sign
 import RegisterArtisan from "./pages/RegisterArtisan/RegisterArtisan";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import UserSetting from "./pages/UserSetting/UserSetting";
+import AdminLogin from "./pages/Admin/components/AdminLogin/AdminLogin";
+import AdminDashboardLayout from "./pages/Admin/components/AdminDashboard/AdminDashboardLayout";
+import DashboardOverview from "./pages/Admin/components/AdminDashboard/components/DashboardOverview/DashboardOverview";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,6 +45,13 @@ function App() {
           />
           <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
           <Route path="/user-setting" element={<UserSetting />} />
+
+          {/* Admin */}
+          <Route path="/admin-login" element={<AdminLogin/>} />
+
+          <Route element={<AdminDashboardLayout/>}>
+            <Route path="/admin/dashboard-overview" element={<DashboardOverview/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </main>
