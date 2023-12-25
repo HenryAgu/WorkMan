@@ -2,7 +2,7 @@
   display: flex;
   margin: 0 auto;
   width: 90%;
-  height: 100vh;
+  height: 100%;
 
   .mobile-side-bar {
     display: none;
@@ -11,7 +11,7 @@
   .side-bar {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width: fit-content;
     row-gap: 50px;
     padding-top: 30px;
     padding-right: 20px;
@@ -55,13 +55,68 @@
       }
     }
   }
+
+  .main-bar {
+    width: 100%;
+    padding: 30px 20px;
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .left-dashboard-header {
+        h1 {
+          color: #141414;
+          font-family: DM Sans;
+          font-size: 31px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 150%; /* 46.5px */
+        }
+      }
+
+      .right-dashboard-header {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+
+        .search {
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+          border-radius: 40px;
+          background: rgba(20, 20, 20, 0.05);
+          padding: 21px 147px 21px 26px;
+
+          input {
+            border: transparent;
+            outline: transparent;
+            color: rgba(20, 20, 20, 0.7);
+            font-family: DM Sans;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 30px */
+            background: transparent;
+          }
+        }
+
+        .desktop-avatar {
+          width: 65px;
+          height: 65px;
+          border-radius: 44.375px;
+        }
+      }
+    }
+  }
 }
 
 // Responsiveness starts here
 @media (max-width: 1280px) {
   .admin-dashboard-layout {
     .side-bar {
-      width: 18%;
+      width: fit-content;
     }
   }
 }
@@ -83,7 +138,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 30px 0;
+      margin: 20px 0;
 
       .left-mobile-sidebar {
         display: flex;
@@ -175,11 +230,22 @@
           width: 44px;
           height: 44px;
         }
+        .avatar {
+          border-radius: 44.375px;
+          width: 44px;
+          height: 44px;
+        }
       }
     }
 
     .side-bar {
       display: none;
+    }
+    .main-bar {
+      padding: 0;
+      .dashboard-header {
+        display: none;
+      }
     }
   }
 }

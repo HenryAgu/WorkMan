@@ -11,7 +11,8 @@ import Logo from "./images/Logo.svg";
 import MenuIcon from "./images/menu.svg";
 import CloseIcon from "./images/Close.svg";
 import searchIcon from "./images/search.svg";
-import avatar from "./images/avatar.svg";
+import desktopSearchIcon from "./images/desktop-search.svg";
+import avatar from "./images/avatar.png";
 import dashboardImage from "./images/Dashboard.svg";
 import usersImage from "./images/Users.svg";
 import artisansImage from "./images/Artisans.svg";
@@ -49,18 +50,18 @@ const AdminDashboardLayout = () => {
   // show sidebar
   const handleShowSidebar = () => {
     setShowSidebar(true);
-  }
+  };
 
   // hide sidebar
   const handleCloseSidebar = () => {
     setShowSidebar(false);
-  }
-  
+  };
+
   return (
     <div className="admin-dashboard-layout">
       <div className="mobile-side-bar">
         <div className="left-mobile-sidebar">
-          <img src={MenuIcon} alt="menu" onClick={handleShowSidebar}/>
+          <img src={MenuIcon} alt="menu" onClick={handleShowSidebar} />
           <img src={Logo} alt="Logo" className="mobile-logo" />
         </div>
         {showSidebar ? (
@@ -85,7 +86,7 @@ const AdminDashboardLayout = () => {
         ) : null}
         <div className="right-mobile-sidebar">
           <img src={searchIcon} alt="search" />
-          <img src={avatar} alt="avatar" />
+          <img src={avatar} alt="avatar" className="avatar"/>
         </div>
       </div>
       <div className="side-bar">
@@ -106,6 +107,18 @@ const AdminDashboardLayout = () => {
         </div>
       </div>
       <div className="main-bar">
+        <div className="dashboard-header">
+          <div className="left-dashboard-header">
+            <h1>Welcome, Admin!</h1>
+          </div>
+          <div className="right-dashboard-header">
+            <div className="search">
+              <img src={desktopSearchIcon} alt="icon" />
+              <input type="text" placeholder="Search here" />
+            </div>
+            <img src={avatar} alt="avatar" className="desktop-avatar"/>
+          </div>
+        </div>
         <Outlet />
       </div>
     </div>
