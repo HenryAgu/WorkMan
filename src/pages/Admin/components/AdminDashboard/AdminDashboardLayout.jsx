@@ -62,7 +62,6 @@ const AdminDashboardLayout = () => {
       <div className="mobile-side-bar">
         <div className="left-mobile-sidebar">
           <img src={MenuIcon} alt="menu" onClick={handleShowSidebar} />
-          <img src={Logo} alt="Logo" className="mobile-logo" />
         </div>
         {showSidebar ? (
           <div className="mobile-menu">
@@ -74,7 +73,7 @@ const AdminDashboardLayout = () => {
             </div>
             <ul>
               {sideMenuItems.map((mobileMenuItem) => (
-                <NavLink to={mobileMenuItem.menuPath}>
+                <NavLink to={mobileMenuItem.menuPath} onClick={handleCloseSidebar}>
                   <li key={mobileMenuItem.id}>
                     <img src={mobileMenuItem.menuImage} alt="dashboard" />
                     <h3>{mobileMenuItem.menuName}</h3>
