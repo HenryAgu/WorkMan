@@ -22,7 +22,7 @@ const AdminLogin = () => {
     e.preventDefault();
     if (username === "admin" && password === "admin") {
       navigate("/admin/dashboard-overview");
-      toast.success("🦄 Wow so easy!", {
+      toast.success("Logged in successfully!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -75,6 +75,7 @@ const AdminLogin = () => {
         </div>
         <button>Log in</button>
       </form>
+      <p>Return to <NavLink to="/">home</NavLink></p>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -87,8 +88,6 @@ const AdminLogin = () => {
         pauseOnHover
         theme="light"
       />
-      {/* Same as */}
-      <ToastContainer />
     </div>
   );
 };

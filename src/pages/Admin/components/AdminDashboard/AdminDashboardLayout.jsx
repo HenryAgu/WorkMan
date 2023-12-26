@@ -17,9 +17,11 @@ import dashboardImage from "./images/Dashboard.svg";
 import usersImage from "./images/Users.svg";
 import artisansImage from "./images/Artisans.svg";
 import settingsImage from "./images/Settings.svg";
+import logoutImage from "./images/logout.svg";
 
 const AdminDashboardLayout = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sideMenuItems = [
     {
       id: 1,
@@ -57,6 +59,11 @@ const AdminDashboardLayout = () => {
     setShowSidebar(false);
   };
 
+  // handleOpenModal
+  const handleOpenModal = () => {
+    setIsModalOpen(!isModalOpen);
+  }
+
   return (
     <div className="admin-dashboard-layout">
       <div className="mobile-side-bar">
@@ -73,7 +80,10 @@ const AdminDashboardLayout = () => {
             </div>
             <ul>
               {sideMenuItems.map((mobileMenuItem) => (
-                <NavLink to={mobileMenuItem.menuPath} onClick={handleCloseSidebar}>
+                <NavLink
+                  to={mobileMenuItem.menuPath}
+                  onClick={handleCloseSidebar}
+                >
                   <li key={mobileMenuItem.id}>
                     <img src={mobileMenuItem.menuImage} alt="dashboard" />
                     <h3>{mobileMenuItem.menuName}</h3>
@@ -85,7 +95,7 @@ const AdminDashboardLayout = () => {
         ) : null}
         <div className="right-mobile-sidebar">
           <img src={searchIcon} alt="search" />
-          <img src={avatar} alt="avatar" className="avatar"/>
+          <img src={avatar} alt="avatar" className="avatar" onClick={handleOpenModal}/>
         </div>
       </div>
       <div className="side-bar">
@@ -115,9 +125,32 @@ const AdminDashboardLayout = () => {
               <img src={desktopSearchIcon} alt="icon" />
               <input type="text" placeholder="Search here" />
             </div>
-            <img src={avatar} alt="avatar" className="desktop-avatar"/>
+            <img
+              src={avatar}
+              alt="avatar"
+              className="desktop-avatar"
+              title="Click me!"
+              onClick={handleOpenModal}
+            />
           </div>
         </div>
+        {isModalOpen ? (
+          <div className="modal">
+            <div className="close">
+              <button onClick={()=> setIsModalOpen(false)}>
+                <img src={CloseIcon} alt="close" />
+              </button>
+            </div>
+            <div className="logout">
+              <NavLink to="/admin-login">
+                <button>
+                  <img src={logoutImage} alt="logout" />
+                  <p>Logout</p>
+                </button>
+              </NavLink>
+            </div>
+          </div>
+        ) : null}
         <Outlet />
       </div>
     </div>

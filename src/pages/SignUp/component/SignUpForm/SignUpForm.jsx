@@ -10,6 +10,10 @@ import EmailIcon from "./images/Email.svg";
 // Navlinks
 import { NavLink } from "react-router-dom";
 
+// toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SignUpForm = () => {
   return (
     <div className="sign-up-form">
@@ -43,9 +47,26 @@ const SignUpForm = () => {
           </p>
         </div>
         <div className="sign-in">
-          <p>Already have an account? <NavLink to="/login"><span>Log in</span></NavLink> </p>
+          <p>
+            Already have an account?{" "}
+            <NavLink to="/login">
+              <span>Log in</span>
+            </NavLink>{" "}
+          </p>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

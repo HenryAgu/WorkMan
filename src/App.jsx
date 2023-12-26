@@ -20,6 +20,7 @@ import AdminLogin from "./pages/Admin/components/AdminLogin/AdminLogin";
 import AdminDashboardLayout from "./pages/Admin/components/AdminDashboard/AdminDashboardLayout";
 import DashboardOverview from "./pages/Admin/components/AdminDashboard/components/DashboardOverview/DashboardOverview";
 import UserOverview from "./pages/Admin/components/AdminDashboard/components/UserOverview/UserOverview";
+import ArtisanOverview from "./pages/Admin/components/AdminDashboard/components/ArtisanOverview/ArtisanOverview";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -53,6 +54,7 @@ function App() {
           <Route element={<AdminDashboardLayout/>}>
             <Route path="/admin/dashboard-overview" element={<DashboardOverview/>}/>
             <Route path="/admin/users" element={<UserOverview/>}/>
+            <Route path="/admin/artisans" element={<ArtisanOverview/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

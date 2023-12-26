@@ -3,6 +3,10 @@ import { useState } from "react";
 // stylesheet
 import "./style/LoginForm.scss";
 
+// toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
@@ -35,8 +39,28 @@ const LoginForm = ({ setUser }) => {
       setUser({ email: email, password: password });
       console.log("Logged In!");
       navigate("/find-artisans");
+      toast.success("Logged in successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       setErrorMessage(true);
+      toast.error("Invalid login details!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   return (
@@ -102,6 +126,18 @@ const LoginForm = ({ setUser }) => {
           </p>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

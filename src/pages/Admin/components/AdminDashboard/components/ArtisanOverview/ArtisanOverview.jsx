@@ -1,14 +1,14 @@
 // stylesheet
-import "./style/UserOverview.scss";
+import "../UserOverview/style/UserOverview.scss";
 
 // images
 import searchIcon from "./images/search.svg";
 import avatar from "./images/avatar.png";
 
-const UserOverview = () => {
+const ArtisanOverview = () => {
 
   // users
-  const users = [
+  const artisans = [
     {
       id: 1,
       name: "John Doe",
@@ -29,25 +29,25 @@ const UserOverview = () => {
   return (
     <div className="user-overview">
       <div className="user-overview-header">
-        <h1>User Management System</h1>
+        <h1>Artisan Management System</h1>
       </div>
       <div className="search-box">
         <img src={searchIcon} alt="search-icon" />
-        <input type="text" placeholder="Search for users" />
+        <input type="text" placeholder="Search for artisans" />
       </div>
       <div className="overview-section">
         <div className="users-section">
-          <h3>Users</h3>
+          <h3>Artisans</h3>
           <div className="inner-overview-section">
-            {users.map((user) => (
+            {artisans.map((artisan) => (
               <div className="particular-user">
-                <div className="left-particular-user" key={user.id}>
+                <div className="left-particular-user" key={artisan.id}>
                   <div className="avatar">
                     <img src={avatar} alt="avatar" />
                   </div>
                   <div className="name-email">
-                    <h3>{user.name}</h3>
-                    <p>{user.email}</p>
+                    <h3>{artisan.name}</h3>
+                    <p>{artisan.email}</p>
                   </div>
                 </div>
                 <div className="right-particular-user">
@@ -62,4 +62,4 @@ const UserOverview = () => {
   );
 };
 
-export default UserOverview;
+export default ArtisanOverview;
