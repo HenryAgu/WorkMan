@@ -1,0 +1,199 @@
+.user-overview {
+  .user-overview-header {
+    margin-top: 30px;
+    h1 {
+      color: #979797;
+      font-family: DM Sans;
+      font-size: 31px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; /* 46.5px */
+    }
+  }
+  .search-box {
+    margin-top: 20px;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    column-gap: 10px;
+    border-radius: 40px;
+    background: rgba(20, 20, 20, 0.05);
+    padding: 21px 147px 21px 26px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    input {
+      border: transparent;
+      outline: transparent;
+      color: rgba(20, 20, 20, 0.7);
+      font-family: DM Sans;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 30px */
+      background: transparent;
+    }
+  }
+  .overview-section {
+    display: flex;
+    column-gap: 100px;
+    margin-top: 30px;
+
+    .users-section {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      h3 {
+        color: #141414;
+        font-family: DM Sans;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 37.5px */
+      }
+
+      .inner-overview-section {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        .particular-user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #ededed;
+
+          .left-particular-user {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+
+            .avatar {
+              img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50px;
+              }
+            }
+            .name-email {
+              h3 {
+                color: #444;
+                font-family: DM Sans;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+              }
+              p {
+                color: #979797;
+                font-family: DM Sans;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px; /* 150% */
+              }
+            }
+          }
+          .right-particular-user {
+            button {
+              padding: 8.961px 17.923px;
+              border-radius: 16.003px;
+              border: 1.6px solid #10be65;
+              background: #fff;
+              outline-color: transparent;
+              cursor: pointer;
+              box-shadow: 0px 5.121px 10.242px 0px rgba(250, 116, 54, 0.16);
+              color: #10be65;
+              font-family: DM Sans;
+              font-size: 11.202px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 20.483px; /* 182.857% */
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 991px) {
+  .user-overview {
+    .user-overview-header {
+      margin-top: 15px;
+      text-align: center;
+
+      h1 {
+        font-size: 20px;
+        line-height: normal;
+      }
+    }
+    .search-box {
+      padding: 21px 132px 21px 26px;
+      img {
+        width: 13px;
+        height: 13px;
+      }
+      input {
+        font-size: 13px;
+      }
+    }
+    .overview-section {
+      .users-section {
+        width: 70%;
+        h3 {
+          color: rgba(20, 20, 20, 0.5);
+          font-size: 20px;
+        }
+
+        .inner-overview-section {
+          .particular-user {
+            .left-particular-user {
+              .avatar {
+                img {
+                  width: 53.245px;
+                  height: 53.245px;
+                }
+              }
+              .name-email {
+                h3 {
+                  font-size: 16px;
+                }
+                p {
+                  font-size: 13px;
+                }
+              }
+            }
+            .right-particular-user {
+              button {
+                font-size: 9.941px;
+                line-height: 18.177px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 640px) {
+    .user-overview{
+        .search-box{
+            width: max-content;
+        }
+        .overview-section{
+            .users-section{
+                width: 100%;
+            }
+        }
+    }
+}

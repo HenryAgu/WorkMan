@@ -1,4 +1,9 @@
+// state
 import { useState } from "react";
+
+// toastify
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // stylesheet
 import "./style/AdminLogin.scss";
@@ -17,9 +22,29 @@ const AdminLogin = () => {
     e.preventDefault();
     if (username === "admin" && password === "admin") {
       navigate("/admin/dashboard-overview");
+      toast.success("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       console.log(`Username ${username}, password ${password}`);
     } else {
       navigate("/admin-login");
+      toast.error('Invalid login details!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   };
   return (
@@ -35,6 +60,7 @@ const AdminLogin = () => {
             placeholder="Enter Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </div>
         <div className="inner-admin-login">
@@ -44,10 +70,25 @@ const AdminLogin = () => {
             placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
         <button>Log in</button>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
     </div>
   );
 };
