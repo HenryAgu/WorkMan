@@ -51,7 +51,7 @@ const DashboardOverview = () => {
       <div className="user-activity">
         <img src={UserActivity} alt="user-activity" />
         <div className="activity-card">
-          <NavLink>
+          <NavLink to="/admin/users">
             <div className="inner-activity-card user-card">
               <div className="activity-card-header">
                 <img src={userIcon} alt="icon" />
@@ -60,22 +60,13 @@ const DashboardOverview = () => {
               <h2>Users</h2>
             </div>
           </NavLink>
-          <NavLink>
+          <NavLink to="/admin/artisans">
             <div className="inner-activity-card admin-card">
               <div className="activity-card-header">
                 <img src={userIcon} alt="icon" />
                 <h3>202</h3>
               </div>
               <h2>Artisans</h2>
-            </div>
-          </NavLink>
-          <NavLink>
-            <div className="inner-activity-card artisan-card">
-              <div className="activity-card-header">
-                <img src={userIcon} alt="icon" />
-                <h3>10</h3>
-              </div>
-              <h2>Admin</h2>
             </div>
           </NavLink>
         </div>
