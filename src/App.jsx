@@ -21,6 +21,7 @@ import AdminDashboardLayout from "./pages/Admin/components/AdminDashboard/AdminD
 import DashboardOverview from "./pages/Admin/components/AdminDashboard/components/DashboardOverview/DashboardOverview";
 import UserOverview from "./pages/Admin/components/AdminDashboard/components/UserOverview/UserOverview";
 import ArtisanOverview from "./pages/Admin/components/AdminDashboard/components/ArtisanOverview/ArtisanOverview";
+import LoginArtisan from "./pages/LoginArtisan/LoginArtisan";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
+          {/* User routes */}
           <Route exact path="/" element={<Home />} />
           <Route
             path="find-artisans"
@@ -45,8 +47,11 @@ function App() {
             path="/sign-up/sign-up-with-email"
             element={<SignUpWithEmail />}
           />
-          <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
           <Route path="/user-setting" element={<UserSetting />} />
+
+          {/* Artisans routes */}
+          <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
+          <Route path="/login-artisan" element={<LoginArtisan/>}/>
 
           {/* Admin */}
           <Route path="/admin-login" element={<AdminLogin/>} />
