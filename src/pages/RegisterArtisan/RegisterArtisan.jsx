@@ -6,6 +6,9 @@ import "./style/RegisterArtisan.scss";
 // component
 import LoginHeader from "../Login/components/LoginHeader/LoginHeader";
 
+// Navlink
+import { NavLink } from "react-router-dom";
+
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
@@ -70,6 +73,9 @@ const RegisterArtisan = () => {
         </div>
         <div className="register-artisan-button">
           <button>Register</button>
+        </div>
+        <div className="artisan-login">
+          <p>Already have an account? <NavLink to=""><span>Sign in</span></NavLink> </p>
         </div>
       </form>
     </div>
