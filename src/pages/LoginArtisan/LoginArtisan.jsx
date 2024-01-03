@@ -20,6 +20,7 @@ const LoginArtisan = () => {
   const [showPassword, setShowPassword] = useState("password");
   const [artisaneEmail, setArtisanEmail] = useState("");
   const [artisanPassword, setArtisanPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
 
   // handlePassword
   const handlePassword = (e) => {
@@ -27,9 +28,41 @@ const LoginArtisan = () => {
     setShowPassword(!showPassword);
   };
 
+  //   handle artisan form
+  const handleArtisanLogin = (e) => {
+    e.preventDefault();
+    if (artisaneEmail !== "" && artisanPassword !== "") {
+      setUser({ artisaneEmail: artisaneEmail,artisanPassword:artisanPassword });
+      console.log("Logged In!");
+      navigate("");
+      toast.success("Logged in successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      setErrorMessage(true);
+      toast.error("Invalid login details!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
   return (
     <div className="login-form artisan-login-form">
-      <form action="">
+      <form action="" onSubmit={handleArtisanLogin}>
         <h1>Artisan Login</h1>
         <div className="login-form-box">
           <div className="inner-login-form">
@@ -69,6 +102,18 @@ const LoginArtisan = () => {
           </p>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
