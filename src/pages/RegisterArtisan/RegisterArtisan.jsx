@@ -75,7 +75,7 @@ const RegisterArtisan = () => {
           <button>Register</button>
         </div>
         <div className="artisan-login">
-          <p>Already have an account? <NavLink to="/login-artisan"><span>Sign in</span></NavLink> </p>
+          <p>Already have an account? <NavLink to="/login-artisan"><span>Login</span></NavLink> </p>
         </div>
       </form>
     </div>

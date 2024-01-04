@@ -22,6 +22,9 @@ const LoginArtisan = () => {
   const [artisanPassword, setArtisanPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
 
+  // navigator
+  const navigate = useNavigate();
+
   // handlePassword
   const handlePassword = (e) => {
     e.preventDefault();
@@ -32,9 +35,8 @@ const LoginArtisan = () => {
   const handleArtisanLogin = (e) => {
     e.preventDefault();
     if (artisaneEmail !== "" && artisanPassword !== "") {
-      setUser({ artisaneEmail: artisaneEmail,artisanPassword:artisanPassword });
-      console.log("Logged In!");
-      navigate("");
+      console.log(`${artisaneEmail} is logged in!`);
+      navigate("/artisan/dashboard-overview");
       toast.success("Logged in successfully!", {
         position: "top-right",
         autoClose: 5000,
@@ -63,7 +65,7 @@ const LoginArtisan = () => {
   return (
     <div className="login-form artisan-login-form">
       <form action="" onSubmit={handleArtisanLogin}>
-        <h1>Artisan Login</h1>
+        <h1>Login as Artisan</h1>
         <div className="login-form-box">
           <div className="inner-login-form">
             <label htmlFor="">Email</label>

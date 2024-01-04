@@ -22,6 +22,8 @@ import DashboardOverview from "./pages/Admin/components/AdminDashboard/component
 import UserOverview from "./pages/Admin/components/AdminDashboard/components/UserOverview/UserOverview";
 import ArtisanOverview from "./pages/Admin/components/AdminDashboard/components/ArtisanOverview/ArtisanOverview";
 import LoginArtisan from "./pages/LoginArtisan/LoginArtisan";
+import ArtisanDashboardLayout from "./pages/ArtisanProfile/components/ArtisanDashboard/ArtisanDashboardLayout";
+import ArtisanDashboardOverview from "./pages/ArtisanProfile/components/ArtisanDashboard/components/ArtisanDashboardOverview/ArtisanDashboardOverview";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,15 +53,24 @@ function App() {
 
           {/* Artisans routes */}
           <Route path="/regsiter-artisan" element={<RegisterArtisan />} />
-          <Route path="/login-artisan" element={<LoginArtisan/>}/>
+          <Route path="/login-artisan" element={<LoginArtisan />} />
+
+          {/* artisan dashboard */}
+          <Route element={<ArtisanDashboardLayout/>}>
+            <Route path="/artisan/dashboard-overview" element={<ArtisanDashboardOverview/>}/>
+          </Route>
 
           {/* Admin */}
-          <Route path="/admin-login" element={<AdminLogin/>} />
+          <Route path="/admin-login" element={<AdminLogin />} />
 
-          <Route element={<AdminDashboardLayout/>}>
-            <Route path="/admin/dashboard-overview" element={<DashboardOverview/>}/>
-            <Route path="/admin/users" element={<UserOverview/>}/>
-            <Route path="/admin/artisans" element={<ArtisanOverview/>}/>
+          {/* admin dashboard */}
+          <Route element={<AdminDashboardLayout />}>
+            <Route
+              path="/admin/dashboard-overview"
+              element={<DashboardOverview />}
+            />
+            <Route path="/admin/users" element={<UserOverview />} />
+            <Route path="/admin/artisans" element={<ArtisanOverview />} />
           </Route>
         </Routes>
       </BrowserRouter>
