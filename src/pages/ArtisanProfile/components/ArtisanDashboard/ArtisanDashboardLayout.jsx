@@ -34,7 +34,7 @@ const ArtisanDashboardLayout = () => {
       id: 2,
       menuImage: artisansImage,
       menuName: "Profile",
-      menuPath: "/artisan/profile",
+      menuPath: "/artisan/profile-overview",
     },
     {
       id: 3,

@@ -1,0 +1,265 @@
+.artisan-profile-overview {
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+  h1 {
+    color: #979797;
+    font-family: DM Sans;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 46.5px */
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    margin-top: 20px;
+
+    .left-profile-header {
+      img {
+        width: 147px;
+        height: 147px;
+        border-radius: 50%;
+      }
+    }
+
+    .right-profile-header {
+      display: flex;
+      align-items: center;
+      column-gap: 30px;
+
+      .available-for-work {
+        display: flex;
+        column-gap: 20px;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 0px 20px 0px rgba(20, 20, 20, 0.1);
+        padding: 30px 23px;
+
+        p {
+          color: rgba(20, 20, 20, 0.5);
+          font-family: DM Sans;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 27px */
+        }
+      }
+
+      .whatsapp-number {
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 0px 20px 0px rgba(20, 20, 20, 0.1);
+        padding: 30px 23px;
+
+        .whatsapp-number-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          p {
+            color: rgba(20, 20, 20, 0.5);
+            font-family: DM Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 27px */
+          }
+
+          button {
+            margin-left: 100px;
+            color: #10be65;
+            font-family: DM Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            border: transparent;
+            outline-color: transparent;
+            background-color: transparent;
+            cursor: pointer;
+          }
+        }
+
+        .whatsapp-number-body {
+          input {
+            border-radius: 4px 0px 0px 4px;
+            outline-color: transparent;
+            border: 1px solid rgba(20, 20, 20, 0.1);
+            background: #fff;
+            color: rgba(20, 20, 20, 0.5);
+            font-family: DM Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+            padding: 5px 10px;
+          }
+          button {
+            color: #fff;
+            font-family: DM Sans;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            border: transparent;
+            outline-color: transparent;
+            background-color: #10be65;
+            cursor: pointer;
+            padding: 7px 10px;
+          }
+
+          p {
+            margin-top: 10px;
+            color: rgba(20, 20, 20, 0.7);
+            font-family: DM Sans;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 30px; /* 166.667% */
+          }
+        }
+      }
+    }
+  }
+
+  .information-section {
+    margin-top: 50px;
+
+    h3 {
+      color: #141414;
+      overflow: hidden;
+      font-family: DM Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+    }
+    .bio {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      margin-top: 20px;
+
+      p {
+        color: #666;
+        font-family: DM Sans;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+
+      textarea {
+        border-radius: 12px;
+        border: 1px solid rgba(20, 20, 20, 0.2);
+        resize: none;
+        padding: 18px 20px 34px 22px;
+        color: rgba(20, 20, 20, 0.7);
+        font-family: DM Sans;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px; /* 166.667% */
+      }
+      button {
+        color: #fff;
+        font-family: DM Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        border: transparent;
+        outline-color: transparent;
+        background-color: #10be65;
+        cursor: pointer;
+        padding: 10px 30px;
+        width: 30%;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .artisan-profile-overview {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+/* Small Screens */
+@media screen and (max-width: 640px) {
+  .artisan-profile-overview {
+    margin-top: 10px;
+    h1 {
+      font-size: 20px;
+      text-align: center;
+    }
+    .profile-header {
+      align-items: center;
+      .left-profile-header {
+        img {
+          width: 70px;
+          height: 70px;
+        }
+      }
+      .right-profile-header{
+        .available-for-work{
+          display: none;
+          p{
+            font-size: 13px;
+          }
+        }
+        .whatsapp-number{
+          .whatsapp-number-header{
+            margin-bottom: 0;
+            p{
+              font-size: 13px;
+            }
+            button{
+              font-size: 13px;
+            }
+          }
+          .whatsapp-number-body{
+            margin-top: 10px;
+            input{
+              font-size: 10px;
+              width: 60%;
+            }
+            button{
+              font-size: 10px;
+            }
+            p{
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    .information-section{
+      margin-top: 30px;
+      h3{
+        font-size: 20px;
+      }
+      .bio{
+        p{
+          font-size: 13px;
+        }
+        textarea{
+          max-width: 90%;
+          font-size: 13px;
+          line-height: 20px;
+        }
+        button{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,7 @@ import ArtisanOverview from "./pages/Admin/components/AdminDashboard/components/
 import LoginArtisan from "./pages/LoginArtisan/LoginArtisan";
 import ArtisanDashboardLayout from "./pages/ArtisanProfile/components/ArtisanDashboard/ArtisanDashboardLayout";
 import ArtisanDashboardOverview from "./pages/ArtisanProfile/components/ArtisanDashboard/components/ArtisanDashboardOverview/ArtisanDashboardOverview";
+import ArtisanProfileOverview from "./pages/ArtisanProfile/components/ArtisanDashboard/components/ArtisanProfileOverview/ArtisanProfileOverview";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -58,6 +59,7 @@ function App() {
           {/* artisan dashboard */}
           <Route element={<ArtisanDashboardLayout/>}>
             <Route path="/artisan/dashboard-overview" element={<ArtisanDashboardOverview/>}/>
+            <Route path="/artisan/profile-overview" element={<ArtisanProfileOverview/>}/>
           </Route>
 
           {/* Admin */}
