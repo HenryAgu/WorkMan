@@ -9,15 +9,14 @@ const EmailMe = () => {
     <div className="email-me">
       <div className="email-me-header">
         <img src={EmailIcon} alt="Email" />
-        <h4>Email me for jobs</h4>
+        <h4>Feedback</h4>
       </div>
       <p>
-        Ut esse eiusmod aute. Sit enim labore dolore. Aute ea fugiat commodo ea
-        foes.
+      Your feedback helps! let us reach out to you.
       </p>
       <div className="submit-email">
         <input type="email" placeholder="name@mail.com" />
-        <button>Subcribe</button>
+        <button>Email us!</button>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const FindArtisanSearch = () => {
       <div className="find-artisan-search-box">
         <div className="search-box">
           <img src={searchIcon} alt="search" />
-          <input type="text" placeholder="What position are you looking for ?"/>
+          <input type="text" placeholder="What skill are you looking for ?"/>
         </div>
         <button>Find Artisans</button>
       </div>
