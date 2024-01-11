@@ -8,7 +8,6 @@ import UserAvatar from "./images/user.png";
 import ArrowDownIcon from "./images/arrow-down.svg";
 import LogOutIcon from "./images/log-out.svg";
 import settingIcon from "./images/setting.svg";
-import forwardIcon from "./images/forward.svg";
 import MenuIcon from "./images/menu.svg";
 
 // react icon

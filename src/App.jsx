@@ -37,11 +37,9 @@ function App() {
           {/* User routes */}
           <Route exact path="/" element={<Home />} />
           <Route
-            path="find-artisans"
+            path="/find-artisans"
             element={
-              <ProtectedRoutes user={user}>
                 <FindArtisan />
-              </ProtectedRoutes>
             }
           />
           <Route path="/artisan-profile" element={<ArtisanProfile />} />
