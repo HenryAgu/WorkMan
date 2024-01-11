@@ -17,12 +17,25 @@ import GoogleImage from "./images/Google.svg";
 
 // React router
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "../../../../api/axios";
 
 const LoginForm = ({ setUser }) => {
   const [showPassword, setShowPassword] = useState("password");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // API URL
+  const LOGIN_USER_URL =
+    "https://job-search-iogy.onrender.com/api/v1/auth/login/customer";
 
   // navigator
   const navigate = useNavigate();
@@ -34,35 +47,41 @@ const LoginForm = ({ setUser }) => {
   };
 
   // handle form submission
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email !== "" && password !== "") {
-      setUser({ email: email, password: password });
-      console.log("Logged In!");
-      navigate("/find-artisans");
-      toast.success("Logged in successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else {
-      setErrorMessage(true);
-      toast.error("Invalid login details!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+    if (formData.email !== "" && formData.password !== "") {
+      try {
+        const response = await axios.post(LOGIN_USER_URL, formData);
+
+        const { token } = response.data;
+
+        // saving the token to local storage
+        localStorage.setItem("jwtToken", token);
+        toast.success("Logged in successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } catch (error) {
+        console.error(error.response ? error.response.data : error.message);
+        toast.error(`Login Failed! ${error.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
+    navigate("/find-artisans");
   };
   return (
     <div className="login-form">
@@ -85,9 +104,10 @@ const LoginForm = ({ setUser }) => {
             <label htmlFor="">Email</label>
             <input
               type="email"
-              value={email}
+              name="email"
+              value={formData.email}
               placeholder=""
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -100,11 +120,12 @@ const LoginForm = ({ setUser }) => {
               </button>
             </label>
             <input
-              value={password}
+              value={formData.password}
+              name="password"
               type={showPassword ? "password" : "text"}
-              placeholder=""
+              placeholder="minimum of six characters"
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleInputChange}
             />
           </div>
         </div>

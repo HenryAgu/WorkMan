@@ -41,12 +41,6 @@ const AdminDashboardLayout = () => {
       menuName: "Artisans",
       menuPath: "/admin/artisans",
     },
-    {
-      id: 4,
-      menuImage: settingsImage,
-      menuName: "Settings",
-      menuPath: "/admin/dashboard-overview",
-    },
   ];
 
   // show sidebar
@@ -62,7 +56,7 @@ const AdminDashboardLayout = () => {
   // handleOpenModal
   const handleOpenModal = () => {
     setIsModalOpen(!isModalOpen);
-  }
+  };
 
   return (
     <div className="admin-dashboard-layout">
@@ -95,15 +89,18 @@ const AdminDashboardLayout = () => {
         ) : null}
         <div className="right-mobile-sidebar">
           <img src={searchIcon} alt="search" />
-          <img src={avatar} alt="avatar" className="avatar" onClick={handleOpenModal}/>
+          <img
+            src={avatar}
+            alt="avatar"
+            className="avatar"
+            onClick={handleOpenModal}
+          />
         </div>
       </div>
       <div className="side-bar">
-        <NavLink to="/admin-login">
-          <div className="logo">
-            <img src={Logo} alt="Logo" />
-          </div>
-        </NavLink>
+        <div className="logo">
+          <img src={Logo} alt="Logo" />
+        </div>
         <div className="side-menu">
           {sideMenuItems.map((menu) => (
             <NavLink to={menu.menuPath}>
@@ -137,7 +134,7 @@ const AdminDashboardLayout = () => {
         {isModalOpen ? (
           <div className="modal">
             <div className="close">
-              <button onClick={()=> setIsModalOpen(false)}>
+              <button onClick={() => setIsModalOpen(false)}>
                 <img src={CloseIcon} alt="close" />
               </button>
             </div>

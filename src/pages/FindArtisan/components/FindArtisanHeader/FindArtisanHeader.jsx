@@ -61,11 +61,13 @@ const FindArtisanHeader = () => {
               </button>
             </div>
           </NavLink>
-          <div className="log-out">
-            <button>
-              <img src={LogOutIcon} alt="log out" /> <h4>Logout</h4>
-            </button>
-          </div>
+          <NavLink to="/">
+            <div className="log-out">
+              <button>
+                <img src={LogOutIcon} alt="log out" /> <h4>Logout</h4>
+              </button>
+            </div>
+          </NavLink>
         </div>
       )}
     </div>

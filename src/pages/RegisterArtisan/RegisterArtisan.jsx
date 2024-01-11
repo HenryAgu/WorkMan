@@ -7,54 +7,141 @@ import "./style/RegisterArtisan.scss";
 import LoginHeader from "../Login/components/LoginHeader/LoginHeader";
 
 // Navlink
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
 
+// axios
+import axios from "../../api/axios";
+
 const RegisterArtisan = () => {
   const [showPassword, setShowPassword] = useState("password");
+
+  const initialFormData = {
+    fullName: "",
+    email: "",
+    phone: "",
+    occupation: "",
+    password: "",
+    location: "",
+    bio: "",
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const navigate = useNavigate();
+
+  // API URL
+  const REGISTER_ARTISAN_URL =
+    "https://job-search-iogy.onrender.com/api/v1/auth/register/job";
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // handlePassword
   const handlePassword = (e) => {
     e.preventDefault();
     setShowPassword(!showPassword);
   };
+
+  // submit form
+  const handleArtisanRegistration = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(REGISTER_ARTISAN_URL, formData);
+      setFormData(initialFormData);
+    } catch (error) {
+      toast.error(error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      console.error(error);
+    }
+    navigate("/login-artisan");
+    console.log({ formData });
+  };
+
   return (
     <div className="register-artisan">
       <LoginHeader />
-      <form action="">
+      <form action="" onSubmit={handleArtisanRegistration}>
         <div className="register-artisan-header">
           <h1>Register As An Artisan</h1>
         </div>
         <div className="register-artisan-form">
           <div className="register-artisan-input">
             <label htmlFor="">Full Name</label>
-            <input type="text" required />
+            <input
+              type="text"
+              value={formData.fullName}
+              name="fullName"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div className="register-artisan-input">
             <label htmlFor="">Email</label>
-            <input type="email" required />
+            <input
+              type="email"
+              required
+              value={formData.email}
+              name="email"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="register-artisan-input">
             <label htmlFor="">Active Whatsapp Number</label>
             <input
               type="tel"
               id="phoneNumber"
-              name="phoneNumber"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
               placeholder="080 0000 0000"
               required
             />
           </div>
           <div className="register-artisan-input">
-            <label htmlFor="">Location</label>
-            <input type="text" placeholder="landmark in Choba" required />
+            <label htmlFor="">Artisan Skill</label>
+            <input
+              type="text"
+              required
+              value={formData.occupation}
+              name="occupation"
+              onChange={handleInputChange}
+            />
           </div>
           <div className="register-artisan-input">
-            <label htmlFor="">Artisan Skill</label>
-            <input type="text" required />
+            <label htmlFor="">Bio</label>
+            <textarea
+              type="tel"
+              name="bio"
+              value={formData.bio}
+              onChange={handleInputChange}
+              placeholder="Write a short description on your skill"
+              required
+            />
+          </div>
+          <div className="register-artisan-input">
+            <label htmlFor="">Location</label>
+            <input
+              type="text"
+              placeholder="landmark in Choba"
+              value={formData.location}
+              name="location"
+              required
+              onChange={handleInputChange}
+            />
           </div>
           <div className="register-artisan-input">
             <label htmlFor="" className="password">
@@ -66,7 +153,10 @@ const RegisterArtisan = () => {
             </label>
             <input
               type={showPassword ? "password" : "text"}
-              placeholder=""
+              placeholder="minimum of six characters"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -75,7 +165,12 @@ const RegisterArtisan = () => {
           <button>Register</button>
         </div>
         <div className="artisan-login">
-          <p>Already have an account? <NavLink to="/login-artisan"><span>Login</span></NavLink> </p>
+          <p>
+            Already have an account?{" "}
+            <NavLink to="/login-artisan">
+              <span>Login</span>
+            </NavLink>{" "}
+          </p>
         </div>
       </form>
     </div>

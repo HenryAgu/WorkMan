@@ -98,11 +98,9 @@ const ArtisanDashboardLayout = () => {
         </div>
       </div>
       <div className="side-bar">
-        <NavLink to="/login-artisan">
           <div className="logo">
             <img src={Logo} alt="Logo" />
           </div>
-        </NavLink>
         <div className="side-menu">
           {sideMenuItems.map((menu) => (
             <NavLink to={menu.menuPath}>
