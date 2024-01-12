@@ -11,40 +11,64 @@ import "./style/AdminLogin.scss";
 // React router
 import { NavLink, useNavigate } from "react-router-dom";
 
+// AXIOS
+import axios from "../../../../api/axios";
+
 const AdminLogin = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const navigate = useNavigate();
 
+  // url
+  const ADMIN_ARTISAN_URL =
+    "https://job-search-iogy.onrender.com/api/v1/auth/login/admin";
+
   // Admin Login
-  const handleAdminLogin = (e) => {
+  const handleAdminLogin = async (e) => {
     e.preventDefault();
-    if (username === "admin" && password === "admin") {
-      navigate("/admin/dashboard-overview");
-      toast.success("Logged in successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      console.log(`Username ${username}, password ${password}`);
-    } else {
-      navigate("/admin-login");
-      toast.error('Invalid login details!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+    if (formData.username !== "" && formData.password !== "") {
+      try {
+        const response = await axios.post(ADMIN_ARTISAN_URL, formData);
+
+        const { token } = response.data;
+
+        // save token to local storage
+        localStorage.setItem("jwtToken", token);
+
+        toast.success("Logged in successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
         });
+        navigate("/admin/dashboard-overview");
+      } catch (error) {
+        console.error(error.response ? error.response.data : error.message);
+        toast.error(`Login Failed! ${error.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
   return (
@@ -58,8 +82,9 @@ const AdminLogin = () => {
           <input
             type="text"
             placeholder="Enter Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={formData.username}
+            name="username"
+            onChange={handleInputChange}
             required
           />
         </div>
@@ -68,14 +93,17 @@ const AdminLogin = () => {
           <input
             type="password"
             placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            name="password"
+            onChange={handleInputChange}
             required
           />
         </div>
         <button>Log in</button>
       </form>
-      <p>Return to <NavLink to="/">home</NavLink></p>
+      <p>
+        Return to <NavLink to="/">home</NavLink>
+      </p>
       <ToastContainer
         position="top-right"
         autoClose={5000}
