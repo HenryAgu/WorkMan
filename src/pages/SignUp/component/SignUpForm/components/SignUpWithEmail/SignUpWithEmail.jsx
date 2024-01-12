@@ -86,7 +86,7 @@ const SignUpWithEmail = () => {
         theme: "light",
       });
     } catch (error) {
-      toast.error(`Registration Failed! ${error.message}`, {
+      toast.error(`Registration Failed! ${error.response.data.message}`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

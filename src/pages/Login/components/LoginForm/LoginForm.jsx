@@ -71,7 +71,7 @@ const LoginForm = ({ setUser }) => {
         navigate("/find-artisans");
       } catch (error) {
         console.error(error.response ? error.response.data : error.message);
-        toast.error(`Login Failed! ${error.message}`, {
+        toast.error(`Login Failed! ${error.response.data.message}`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

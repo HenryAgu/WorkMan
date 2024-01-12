@@ -55,7 +55,7 @@ const RegisterArtisan = () => {
       await axios.post(REGISTER_ARTISAN_URL, formData);
       setFormData(initialFormData);
     } catch (error) {
-      toast.error(error, {
+      toast.error(`Registration Failed! ${error.response.data.message}`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
