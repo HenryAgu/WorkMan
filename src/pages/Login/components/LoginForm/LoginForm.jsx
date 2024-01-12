@@ -67,6 +67,8 @@ const LoginForm = ({ setUser }) => {
           progress: undefined,
           theme: "light",
         });
+        // navigation to find artisan page
+        navigate("/find-artisans");
       } catch (error) {
         console.error(error.response ? error.response.data : error.message);
         toast.error(`Login Failed! ${error.message}`, {
@@ -81,7 +83,6 @@ const LoginForm = ({ setUser }) => {
         });
       }
     }
-    navigate("/find-artisans");
   };
   return (
     <div className="login-form">
