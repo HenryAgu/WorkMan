@@ -22,6 +22,7 @@ const RegisterArtisan = () => {
   const initialFormData = {
     fullName: "",
     email: "",
+    whatsapp: "",
     phone: "",
     occupation: "",
     password: "",
@@ -104,13 +105,25 @@ const RegisterArtisan = () => {
             <input
               type="tel"
               id="phoneNumber"
-              name="phone"
-              value={formData.phone}
+              name="whatsapp"
+              value={formData.whatsapp}
               onChange={handleInputChange}
               placeholder="080 0000 0000"
               required
             />
           </div>
+          <div className="register-artisan-input">
+            <label htmlFor="">Other Phone Number</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="whatsapp"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="080 0000 0000"
+            />
+          </div>
+          
           <div className="register-artisan-input">
             <label htmlFor="">Artisan Skill</label>
             <input

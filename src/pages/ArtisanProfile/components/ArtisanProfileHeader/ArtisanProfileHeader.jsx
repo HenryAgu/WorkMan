@@ -21,6 +21,7 @@ const ArtisanProfileHeader = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   const params = useParams();
 
   // Render artisan list
@@ -36,10 +37,9 @@ const ArtisanProfileHeader = () => {
         }
       );
 
-      // customer list
-      console.log(Object.values(res.data.jobs));
-      setData(res.data);
-      console.log(res);
+      // artisan information
+      setData(res.data.job);
+      console.log(res.data);
       setIsLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -50,41 +50,53 @@ const ArtisanProfileHeader = () => {
   useEffect(() => {
     handler();
   }, []);
-  
   return (
-    <div className="artisan-profile-header">
-      <div className="left-artisan-profile-header">
-        <img src={profilePicture} alt="profile" title="profile picture" />
-      </div>
-      <div className="right-artisan-profile-header">
-        <div className="artisan-info">
-          <h3>{data.fullName}</h3>
-          <p>Web Developer</p>
+    <>
+      {isLoading ? (
+        <h3>Loading...</h3>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <div className="artisan-profile-header">
+          <div className="left-artisan-profile-header">
+            <img src={profilePicture} alt="profile" title="profile picture" />
+          </div>
+          <div className="right-artisan-profile-header">
+            <div className="artisan-info">
+              <h3>{data.fullName}</h3>
+              <p>{data.occupation}</p>
+            </div>
+            <div className="artisan-bio">
+              <p>{data.bio}</p>
+            </div>
+            <div className="location">
+              <img src={locationPin} alt="location" />
+              <p>{data.location}</p>
+            </div>
+            <div className="artisan-availability">
+              <img src={onlineIcon} alt="online" title="online" />
+              <p>Available for work</p>
+            </div>
+            <div className="contact-artisan">
+              <NavLink
+                to={`https://wa.me/${data.phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="whatsapp">
+                  <FaWhatsapp /> Whatsapp
+                </button>
+              </NavLink>
+              <NavLink to={`tel:${data.phone}`}>
+                <button className="call">
+                  <FaPhoneAlt /> Call
+                </button>
+              </NavLink>
+            </div>
+          </div>
         </div>
-        <div className="artisan-bio">
-          <p>
-            our work embodies a seamless blend of practicality and aesthetic
-            appeal, enriching living spaces with exquisite craftsmanship
-          </p>
-        </div>
-        <div className="location">
-          <img src={locationPin} alt="location" />
-          <p>Choba, Uniport</p>
-        </div>
-        <div className="artisan-availability">
-          <img src={onlineIcon} alt="online" title="online" />
-          <p>Available for work</p>
-        </div>
-        <div className="contact-artisan">
-          <button className="whatsapp">
-            <FaWhatsapp /> Whatsapp
-          </button>
-          <button className="call">
-            <FaPhoneAlt /> Call
-          </button>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

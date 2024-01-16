@@ -15,6 +15,7 @@ import FindArtisanContent from "./components/FindArtisanContent/FindArtisanConte
 const FindArtisan = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("jwtToken");
+  console.log(token);
 
   useEffect(() => {
     if (!token) {
