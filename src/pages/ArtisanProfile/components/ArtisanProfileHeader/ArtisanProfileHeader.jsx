@@ -79,7 +79,7 @@ const ArtisanProfileHeader = () => {
             </div>
             <div className="contact-artisan">
               <NavLink
-                to={`https://wa.me/${data.phone}`}
+                to={`https://wa.me/${data.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
