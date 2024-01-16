@@ -1,5 +1,10 @@
+import { useState, useEffect } from "react";
+
 // stylesheet
 import "./style/UserOverview.scss";
+
+// react-helmet
+import { Helmet } from "react-helmet";
 
 // images
 import searchIcon from "./images/search.svg";
@@ -7,6 +12,9 @@ import avatar from "./images/avatar.png";
 
 const UserOverview = () => {
 
+  const [userList, setUserList] = useState();
+
+  
   // users
   const users = [
     {
@@ -27,6 +35,39 @@ const UserOverview = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        {/* Basic Meta Tags */}
+        <title>User Overview | WorkMan</title>
+        <meta
+          name="description"
+          content="WorkMan is my final year project at the University of Port Harcourt. It is a website that connects users to artisans residing at Choba area."
+        />
+        <meta
+          name="keywords"
+          content="artisan, craftsmen, handmade, custom-made, traditional crafts, unique art, bespoke, handcrafted goods, artisanal products, local artisans, craftsmanship, handmade jewelry, handmade furniture, artisan marketplace, artisan community, creative artisans, artisanal services"
+        />
+
+        <meta name="author" content="Agu Henry" />
+
+        {/* Open Graph Meta Tags (for social media sharing) */}
+        <meta property="og:title" content="User Overview | WorkMan" />
+        <meta
+          property="og:description"
+          content="WorkMan is my final year project at the University of Port Harcourt. It is a website that connects users to artisans residing at Choba area."
+        />
+        <meta property="og:image" content="./assets/OG-image.svg" />
+        <meta property="og:url" content="https://workman-six.vercel.app/" />
+
+        {/* Twitter Meta Tags (for Twitter Cards) */}
+        <meta name="twitter:card" content="./assets/OG-image.svg" />
+        <meta name="twitter:title" content="User Overview | WorkMan" />
+        <meta
+          name="twitter:description"
+          content="WorkMan is my final year project at the University of Port Harcourt. It is a website that connects users to artisans residing at Choba area."
+        />
+        <meta name="twitter:image" content="./assets/OG-image.svg" />
+      </Helmet>
     <div className="user-overview">
       <div className="user-overview-header">
         <h1>User Management System</h1>
@@ -59,6 +100,7 @@ const UserOverview = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

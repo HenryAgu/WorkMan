@@ -103,10 +103,10 @@ const AdminDashboardLayout = () => {
         </div>
         <div className="side-menu">
           {sideMenuItems.map((menu) => (
-            <NavLink to={menu.menuPath}>
-              <div className="menu-item" key={menu.id}>
+            <NavLink to={menu.menuPath} key={menu.id}>
+              <div className="menu-item">
                 <img src={menu.menuImage} alt="side-image" />
-                <h3 activeClassName="active">{menu.menuName}</h3>
+                <h3>{menu.menuName}</h3>
               </div>
             </NavLink>
           ))}
