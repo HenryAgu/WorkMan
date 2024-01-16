@@ -1,14 +1,44 @@
+import { useState, useEffect } from "react";
+
 // stylesheet
 import "../UserOverview/style/UserOverview.scss";
 
 // react-helmet
 import { Helmet } from "react-helmet";
 
+// axios
+import axios from "axios";
+
 // images
 import searchIcon from "./images/search.svg";
 import avatar from "./images/avatar.png";
 
 const ArtisanOverview = () => {
+
+  const [artisanList, setArtisanList] = useState([]);
+
+  async function handler() {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      const res = await axios.get(
+        "https://job-search-iogy.onrender.com/api/v1/user/job",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // customer list
+      console.log(Object.values(res.data.jobs));
+      setArtisanList(Object.values(res.data.jobs))
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+  useEffect(() => {
+    handler();
+  }, []);
+
   // users
   const artisans = [
     {
@@ -74,14 +104,14 @@ const ArtisanOverview = () => {
           <div className="users-section">
             <h3>Artisans</h3>
             <div className="inner-overview-section">
-              {artisans.map((artisan) => (
-                <div className="particular-user">
-                  <div className="left-particular-user" key={artisan.id}>
+              {artisanList.map((artisan) => (
+                <div className="particular-user" key={artisan.id}>
+                  <div className="left-particular-user">
                     <div className="avatar">
                       <img src={avatar} alt="avatar" />
                     </div>
                     <div className="name-email">
-                      <h3>{artisan.name}</h3>
+                      <h3>{artisan.fullName}</h3>
                       <p>{artisan.email}</p>
                     </div>
                   </div>

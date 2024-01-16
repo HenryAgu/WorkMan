@@ -31,13 +31,10 @@ const DashboardOverview = () => {
             },
           }
         );
-        // user stat
-        console.log(`User stat: ${res.data.stats.customer}`);
+        // user stat & artisan stat 
         setUserCount(res.data.stats.customer);
-
-        // artisan stat
-        console.log(`Artisan stat: ${res.data.stats.jobs}`);
         setArtisanCount(res.data.stats.jobs);
+        console.log(`User stat: ${res.data.stats.customer}, Artisan stat: ${res.data.stats.jobs}`);
       } catch (err) {
         console.log(err.message);
       }

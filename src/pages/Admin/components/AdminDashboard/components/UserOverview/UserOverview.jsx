@@ -6,33 +6,39 @@ import "./style/UserOverview.scss";
 // react-helmet
 import { Helmet } from "react-helmet";
 
+// axios
+import axios from "axios";
+
 // images
 import searchIcon from "./images/search.svg";
 import avatar from "./images/avatar.png";
 
 const UserOverview = () => {
 
-  const [userList, setUserList] = useState();
+  const [customerList, setCustomerList] = useState([]);
 
-  
-  // users
-  const users = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-    {
-      id: 2,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-  ];
+  async function handler() {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      const res = await axios.get(
+        "https://job-search-iogy.onrender.com/api/v1/user/customer",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // customer list
+      console.log(Object.values(res.data.customers));
+      setCustomerList(Object.values(res.data.customers))
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+  useEffect(() => {
+    handler();
+  }, []);
+
 
   return (
     <>
@@ -80,15 +86,15 @@ const UserOverview = () => {
         <div className="users-section">
           <h3>Users</h3>
           <div className="inner-overview-section">
-            {users.map((user) => (
-              <div className="particular-user">
-                <div className="left-particular-user" key={user.id}>
+            {customerList.map((customers) => (
+              <div className="particular-user" key={customers.id}>
+                <div className="left-particular-user">
                   <div className="avatar">
                     <img src={avatar} alt="avatar" />
                   </div>
                   <div className="name-email">
-                    <h3>{user.name}</h3>
-                    <p>{user.email}</p>
+                    <h3>{customers.username}</h3>
+                    <p>{customers.email}</p>
                   </div>
                 </div>
                 <div className="right-particular-user">
