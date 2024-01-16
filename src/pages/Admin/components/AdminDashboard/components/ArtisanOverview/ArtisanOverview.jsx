@@ -14,9 +14,11 @@ import searchIcon from "./images/search.svg";
 import avatar from "./images/avatar.png";
 
 const ArtisanOverview = () => {
-
   const [artisanList, setArtisanList] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // Render artisan list
   async function handler() {
     try {
       const token = localStorage.getItem("jwtToken");
@@ -30,33 +32,32 @@ const ArtisanOverview = () => {
       );
       // customer list
       console.log(Object.values(res.data.jobs));
-      setArtisanList(Object.values(res.data.jobs))
+      setArtisanList(Object.values(res.data.jobs));
+      setIsLoading(false);
     } catch (err) {
       console.log(err.message);
+      setIsLoading(false);
+      setError(err);
     }
   }
   useEffect(() => {
     handler();
   }, []);
 
-  // users
-  const artisans = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-    {
-      id: 2,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-    {
-      id: 3,
-      name: "John Doe",
-      email: "john.doe@gmail.com",
-    },
-  ];
+  // delete an artisan
+  const handleArtisanDelete = async (artisanId) => {
+    try {
+      // Make a DELETE request to your endpoint
+      await axios.delete(
+        `https://job-search-iogy.onrender.com/api/v1/user/delete-user`
+      );
+      // Optionally, update your component state or perform other actions
+      console.log(`${artisanId}`);
+      setArtisanList(artisanList.filter((artisan) => artisan.id !== artisanId));
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
   return (
     <>
@@ -92,38 +93,51 @@ const ArtisanOverview = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div className="user-overview">
-        <div className="user-overview-header">
-          <h1>Artisan Management System</h1>
+      {isLoading ? (
+        <div className="loading">
+          <div class="loading-container"></div>
         </div>
-        <div className="search-box">
-          <img src={searchIcon} alt="search-icon" />
-          <input type="text" placeholder="Search for artisans" />
-        </div>
-        <div className="overview-section">
-          <div className="users-section">
-            <h3>Artisans</h3>
-            <div className="inner-overview-section">
-              {artisanList.map((artisan) => (
-                <div className="particular-user" key={artisan.id}>
-                  <div className="left-particular-user">
-                    <div className="avatar">
-                      <img src={avatar} alt="avatar" />
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <div className="user-overview">
+          <div className="user-overview-header">
+            <h1>Artisan Management System</h1>
+          </div>
+          <div className="search-box">
+            <img src={searchIcon} alt="search-icon" />
+            <input type="text" placeholder="Search for artisans" />
+          </div>
+          <div className="overview-section">
+            <div className="users-section">
+              <h3>Artisans</h3>
+              <div className="inner-overview-section">
+                {artisanList.map((artisan) => (
+                  <div className="particular-user" key={artisan.id}>
+                    <div className="left-particular-user">
+                      <div className="avatar">
+                        <img src={avatar} alt="avatar" />
+                      </div>
+                      <div className="name-email">
+                        <h3>{artisan.fullName}</h3>
+                        <p>
+                          <b>{artisan.occupation}</b>
+                        </p>
+                        <p>{artisan.email}</p>
+                      </div>
                     </div>
-                    <div className="name-email">
-                      <h3>{artisan.fullName}</h3>
-                      <p>{artisan.email}</p>
+                    <div className="right-particular-user">
+                      <button onClick={() => handleArtisanDelete(artisan.id)}>
+                        Delete
+                      </button>
                     </div>
                   </div>
-                  <div className="right-particular-user">
-                    <button>Delete</button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

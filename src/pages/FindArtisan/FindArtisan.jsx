@@ -1,5 +1,10 @@
+import { useEffect } from "react";
+
 // react-helmet
 import { Helmet } from "react-helmet";
+
+// React router
+import { useNavigate } from "react-router-dom";
 
 // components
 import FindArtisanHeader from "./components/FindArtisanHeader/FindArtisanHeader";
@@ -8,6 +13,15 @@ import FindArtisanStat from "./components/FindArtisanStat/FindArtisanStat";
 import FindArtisanContent from "./components/FindArtisanContent/FindArtisanContent";
 
 const FindArtisan = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("jwtToken");
+
+  useEffect(() => {
+    if (!token) {
+      // navigation to find artisan page
+      navigate("/login");
+    }
+  }, [token, navigate]);
   return (
     <>
       {/* React Helmet */}
@@ -45,9 +59,9 @@ const FindArtisan = () => {
       </Helmet>
       <div style={{ width: "90%", margin: "30px auto" }}>
         <FindArtisanHeader />
-        <FindArtisanSearch/>
-        <FindArtisanStat/>
-        <FindArtisanContent/>
+        <FindArtisanSearch />
+        <FindArtisanStat />
+        <FindArtisanContent />
       </div>
     </>
   );

@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 // stylesheet
 import "./style/ArtisanProfile.scss";
 

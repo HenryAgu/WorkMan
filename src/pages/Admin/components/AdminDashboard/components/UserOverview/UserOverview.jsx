@@ -16,6 +16,8 @@ import avatar from "./images/avatar.png";
 const UserOverview = () => {
 
   const [customerList, setCustomerList] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function handler() {
     try {
@@ -30,9 +32,12 @@ const UserOverview = () => {
       );
       // customer list
       console.log(Object.values(res.data.customers));
-      setCustomerList(Object.values(res.data.customers))
+      setCustomerList(Object.values(res.data.customers));
+      setIsLoading(false);
     } catch (err) {
       console.log(err.message);
+      setIsLoading(false);
+      setError(err);
     }
   }
   useEffect(() => {
@@ -74,6 +79,13 @@ const UserOverview = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
+      {isLoading ? (
+        <div className="loading">
+          <div class="loading-container"></div>
+        </div>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
     <div className="user-overview">
       <div className="user-overview-header">
         <h1>User Management System</h1>
@@ -105,7 +117,7 @@ const UserOverview = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>)}
     </>
   );
 };

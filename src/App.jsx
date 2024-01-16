@@ -42,7 +42,7 @@ function App() {
                 <FindArtisan />
             }
           />
-          <Route path="/artisan-profile" element={<ArtisanProfile />} />
+          <Route path="/artisan-profile/:id" element={<ArtisanProfile />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route

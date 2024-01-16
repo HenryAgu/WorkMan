@@ -17,31 +17,38 @@ import UserActivity from "./images/UserActivity.png";
 import userIcon from "./images/users.svg";
 
 const DashboardOverview = () => {
-    const [artisanCount, setArtisanCount] = useState(0);
-    const [userCount, setUserCount] = useState(0);
+  const [artisanCount, setArtisanCount] = useState(0);
+  const [userCount, setUserCount] = useState(0);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-    async function handler() {
-      try {
-        const token = localStorage.getItem("jwtToken");
-        const res = await axios.get(
-          "https://job-search-iogy.onrender.com/api/v1/user/stats",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        // user stat & artisan stat 
-        setUserCount(res.data.stats.customer);
-        setArtisanCount(res.data.stats.jobs);
-        console.log(`User stat: ${res.data.stats.customer}, Artisan stat: ${res.data.stats.jobs}`);
-      } catch (err) {
-        console.log(err.message);
-      }
+  async function handler() {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      const res = await axios.get(
+        "https://job-search-iogy.onrender.com/api/v1/user/stats",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // user stat & artisan stat
+      setUserCount(res.data.stats.customer);
+      setArtisanCount(res.data.stats.jobs);
+      setIsLoading(false);
+      console.log(
+        `User stat: ${res.data.stats.customer}, Artisan stat: ${res.data.stats.jobs}`
+      );
+    } catch (err) {
+      console.log(err.message);
+      setIsLoading(false);
+      setError(err);
     }
-    useEffect(() => {
-      handler();
-    }, []);
+  }
+  useEffect(() => {
+    handler();
+  }, []);
   return (
     <>
       <Helmet>
@@ -76,44 +83,52 @@ const DashboardOverview = () => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div className="dashboard-overview">
-        <div className="dashboard-header">
-          <h1>Dashboard Overview</h1>
+      {isLoading ? (
+        <div className="loading">
+          <div class="loading-container"></div>
         </div>
-        <div className="user-activity">
-          <img src={UserActivity} alt="user-activity" />
-          <div className="activity-card">
-            <NavLink to="/admin/users">
-              <div className="inner-activity-card user-card">
-                <div className="activity-card-header">
-                  <img src={userIcon} alt="icon" />
-                  <h3>{userCount}</h3>
+      ) : error ? (
+        <h3>{error}</h3>
+      ) : (
+        <div className="dashboard-overview">
+          <div className="dashboard-header">
+            <h1>Dashboard Overview</h1>
+          </div>
+          <div className="user-activity">
+            <img src={UserActivity} alt="user-activity" />
+            <div className="activity-card">
+              <NavLink to="/admin/users">
+                <div className="inner-activity-card user-card">
+                  <div className="activity-card-header">
+                    <img src={userIcon} alt="icon" />
+                    <h3>{userCount}</h3>
+                  </div>
+                  <h2>Users</h2>
                 </div>
-                <h2>Users</h2>
-              </div>
-            </NavLink>
-            <NavLink to="/admin/artisans">
-              <div className="inner-activity-card admin-card">
-                <div className="activity-card-header">
-                  <img src={userIcon} alt="icon" />
-                  <h3>{artisanCount}</h3>
+              </NavLink>
+              <NavLink to="/admin/artisans">
+                <div className="inner-activity-card admin-card">
+                  <div className="activity-card-header">
+                    <img src={userIcon} alt="icon" />
+                    <h3>{artisanCount}</h3>
+                  </div>
+                  <h2>Artisans</h2>
                 </div>
-                <h2>Artisans</h2>
-              </div>
-            </NavLink>
+              </NavLink>
+            </div>
+          </div>
+          <div className="recent-activity">
+            <div className="recent-activity-header">
+              <h3>Recent Activity</h3>
+            </div>
+            <ul>
+              <li>User Jane Smith's account was approved by Tunde</li>
+              <li>User Henry Agu account was approved by Patrick</li>
+              <li>You made Joyce an admin</li>
+            </ul>
           </div>
         </div>
-        <div className="recent-activity">
-          <div className="recent-activity-header">
-            <h3>Recent Activity</h3>
-          </div>
-          <ul>
-            <li>User Jane Smith's account was approved by Tunde</li>
-            <li>User Henry Agu account was approved by Patrick</li>
-            <li>You made Joyce an admin</li>
-          </ul>
-        </div>
-      </div>
+      )}
     </>
   );
 };
