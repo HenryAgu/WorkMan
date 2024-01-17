@@ -44,17 +44,6 @@ const AdminLogin = () => {
 
         // save token to local storage
         localStorage.setItem("jwtToken", token);
-
-        toast.success("Logged in successfully!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
         navigate("/admin/dashboard-overview");
       } catch (error) {
         console.error(error.response ? error.response.data : error.message);

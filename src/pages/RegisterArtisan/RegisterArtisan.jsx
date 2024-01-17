@@ -12,6 +12,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
+import { IoArrowBack } from "react-icons/io5";
 
 // axios
 import axios from "../../api/axios";
@@ -84,9 +85,14 @@ const RegisterArtisan = () => {
   return (
     <div className="register-artisan">
       <LoginHeader />
+      <NavLink to="/">
+        <div className="go-back" title="Home" style={{width: "80%", margin: "0 auto", fontSize: "18px"}}>
+          <IoArrowBack className="go-back-icon" />
+        </div>
+      </NavLink>
       <form action="" onSubmit={handleArtisanRegistration}>
         <div className="register-artisan-header">
-          <h1>Register As An Artisan</h1>
+          <h1>Sign Up As Artisan</h1>
         </div>
         <div className="register-artisan-form">
           <div className="register-artisan-input">
@@ -118,7 +124,7 @@ const RegisterArtisan = () => {
               value={formData.whatsapp}
               onChange={handleInputChange}
               // maxLength={11}
-              placeholder="80 0000 0000"
+              placeholder="080 0000 0000"
               required
             />
           </div>

@@ -7,6 +7,17 @@
   height: fit-content;
   margin-bottom: 100px;
 
+  .go-back{
+    width: 80%;
+    margin: 0 auto;
+
+    .go-back-icon{
+      font-weight: 700;
+      font-size: 32px;
+      color: #141414;
+    }
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -152,6 +163,12 @@
 @media screen and (max-width: 640px) {
   .sign-up-with-email {
     margin-bottom: 0;
+    .go-back{
+
+      .go-back-icon{
+       font-size: 20px;
+      } 
+    }
 
     form {
       width: 80%;

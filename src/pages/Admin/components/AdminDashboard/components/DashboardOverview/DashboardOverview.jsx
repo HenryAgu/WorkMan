@@ -117,16 +117,6 @@ const DashboardOverview = () => {
               </NavLink>
             </div>
           </div>
-          <div className="recent-activity">
-            <div className="recent-activity-header">
-              <h3>Recent Activity</h3>
-            </div>
-            <ul>
-              <li>User Jane Smith's account was approved by Tunde</li>
-              <li>User Henry Agu account was approved by Patrick</li>
-              <li>You made Joyce an admin</li>
-            </ul>
-          </div>
         </div>
       )}
     </>

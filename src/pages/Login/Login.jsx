@@ -4,6 +4,10 @@ import "./style/Login.scss";
 // react-helmet
 import { Helmet } from "react-helmet";
 
+import { IoArrowBack } from "react-icons/io5";
+
+import { NavLink } from "react-router-dom";
+
 // components
 import LoginHeader from "./components/LoginHeader/LoginHeader";
 import LoginForm from "./components/LoginForm/LoginForm";
@@ -44,8 +48,13 @@ const Login = ({setUser}) => {
         />
         <meta name="twitter:image" content="./assets/OG-image.svg" />
       </Helmet>
-      <div className="customer-login">
+      <div className="customer-login" >
         <LoginHeader />
+        <NavLink to="/">
+        <div className="go-back" title="Home" style={{width: "80%", margin: "0 auto"}}>
+          <IoArrowBack className="go-back-icon" />
+        </div>
+      </NavLink>
         <LoginForm setUser={setUser}/>
       </div>
     </>

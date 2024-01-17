@@ -15,6 +15,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
+import { IoArrowBack } from "react-icons/io5";
 
 // axios
 import axios from "../../api/axios";
@@ -69,7 +70,7 @@ const LoginArtisan = () => {
           theme: "light",
         });
         // navigation to artisan dashboard
-        navigate("/artisan/dashboard-overview")
+        navigate("/artisan/dashboard-overview");
       } catch (error) {
         console.error(error.response ? error.response.data : error.message);
         toast.error(`Login Failed! ${error.response.data.message}`, {
@@ -99,61 +100,71 @@ const LoginArtisan = () => {
   };
 
   return (
-    <div className="login-form artisan-login-form">
-      <form action="" onSubmit={handleArtisanLogin}>
-        <h1>Login as Artisan</h1>
-        <div className="login-form-box">
-          <div className="inner-login-form">
-            <label htmlFor="">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              placeholder=""
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="inner-login-form">
-            <label htmlFor="" className="password">
-              <p>Password</p>
-              <button onClick={handlePassword}>
-                {showPassword ? <BiShow /> : <BiSolidHide />}
-                {showPassword ? "Show" : "Hide"}
-              </button>
-            </label>
-            <input
-            name="password"
-              value={formData.password}
-              type={showPassword ? "password" : "text"}
-              placeholder=""
-              required
-              onChange={handleInputChange}
-            />
-          </div>
+    <div div className="artisan-login">
+      <NavLink to="/">
+        <div
+          className="go-back login-artisan-go-back"
+          title="Home"
+        >
+          <IoArrowBack className="go-back-icon" />
         </div>
-        <button className="login-button">Login</button>
-        <div className="sign-up-link">
-          <p>
-            Don’t have an account?
-            <NavLink to="/regsiter-artisan">
-              <span> Sign up</span>
-            </NavLink>
-          </p>
-        </div>
-      </form>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      </NavLink>
+      <div className="login-form artisan-login-form">
+        <form action="" onSubmit={handleArtisanLogin}>
+          <h1>Login as Artisan</h1>
+          <div className="login-form-box">
+            <div className="inner-login-form">
+              <label htmlFor="">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                placeholder=""
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="inner-login-form">
+              <label htmlFor="" className="password">
+                <p>Password</p>
+                <button onClick={handlePassword}>
+                  {showPassword ? <BiShow /> : <BiSolidHide />}
+                  {showPassword ? "Show" : "Hide"}
+                </button>
+              </label>
+              <input
+                name="password"
+                value={formData.password}
+                type={showPassword ? "password" : "text"}
+                placeholder=""
+                required
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+          <button className="login-button">Login</button>
+          <div className="sign-up-link">
+            <p>
+              Don’t have an account?
+              <NavLink to="/regsiter-artisan">
+                <span> Sign up</span>
+              </NavLink>
+            </p>
+          </div>
+        </form>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </div>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import LoginHeader from "../../../../../Login/components/LoginHeader/LoginHeader
 // React icons
 import { BiSolidHide } from "react-icons/bi";
 import { BiShow } from "react-icons/bi";
+import { IoArrowBack } from "react-icons/io5";
 
 // toastify
 import { ToastContainer, toast } from "react-toastify";
@@ -104,9 +105,14 @@ const SignUpWithEmail = () => {
   return (
     <div className="sign-up-with-email">
       <LoginHeader />
+      <NavLink to="/">
+        <div className="go-back" title="Home">
+          <IoArrowBack className="go-back-icon" />
+        </div>
+      </NavLink>
       <form action="" onSubmit={handleSignUpWithEmail}>
         <div className="with-email-header">
-          <h1>Sign Up With Email</h1>
+          <h1>Sign Up As User</h1>
         </div>
         <div className="with-email-form">
           <div className="with-email-input">
