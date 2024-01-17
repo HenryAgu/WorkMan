@@ -117,7 +117,7 @@ const RegisterArtisan = () => {
               name="whatsapp"
               value={formData.whatsapp}
               onChange={handleInputChange}
-              maxLength={11}
+              // maxLength={11}
               placeholder="80 0000 0000"
               required
             />
