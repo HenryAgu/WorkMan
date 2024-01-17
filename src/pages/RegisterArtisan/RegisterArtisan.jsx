@@ -32,7 +32,8 @@ const RegisterArtisan = () => {
     bio: "",
   };
   const [formData, setFormData] = useState(initialFormData);
-  const formattedWhatsapp = `+234${formData.whatsapp.substring(1)}`;
+  const cleanedNumber = formData.whatsapp.replace(/\s/g, '');
+  const formattedWhatsapp = `+234${cleanedNumber.substring(1)}`;
   const updatedFormData = { ...formData, whatsapp: formattedWhatsapp };
 
   const navigate = useNavigate();

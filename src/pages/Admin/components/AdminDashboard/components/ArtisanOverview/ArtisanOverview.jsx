@@ -47,13 +47,19 @@ const ArtisanOverview = () => {
   // delete an artisan
   const handleArtisanDelete = async (artisanId) => {
     try {
-      // Make a DELETE request to your endpoint
+      const updatedArtisanList = artisanList.filter((artisan) => artisan._id !== artisanId);
+      setArtisanList(updatedArtisanList);
+      console.log(`${artisanId} deleted, remaining: ${updatedArtisanList}`);
+
+      const token = localStorage.getItem("jwtToken");
       await axios.delete(
-        `https://job-search-iogy.onrender.com/api/v1/user/delete-user`
+        `https://job-search-iogy.onrender.com/api/v1/user/delete-user/${artisanId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
-      // Optionally, update your component state or perform other actions
-      console.log(`${artisanId}`);
-      setArtisanList(artisanList.filter((artisan) => artisan.id !== artisanId));
     } catch (error) {
       console.error("Error deleting item:", error);
     }
@@ -113,7 +119,7 @@ const ArtisanOverview = () => {
               <h3>Artisans</h3>
               <div className="inner-overview-section">
                 {artisanList.map((artisan) => (
-                  <div className="particular-user" key={artisan.id}>
+                  <div className="particular-user" key={artisan._id}>
                     <div className="left-particular-user">
                       <div className="avatar">
                         <img src={avatar} alt="avatar" />
@@ -127,7 +133,7 @@ const ArtisanOverview = () => {
                       </div>
                     </div>
                     <div className="right-particular-user">
-                      <button onClick={() => handleArtisanDelete(artisan.id)}>
+                      <button onClick={() => handleArtisanDelete(artisan._id)}>
                         Delete
                       </button>
                     </div>
