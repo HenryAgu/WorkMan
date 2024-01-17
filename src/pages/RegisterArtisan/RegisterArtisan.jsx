@@ -131,6 +131,7 @@ const RegisterArtisan = () => {
               onChange={handleInputChange}
               maxLength={11}
               placeholder="080 0000 0000"
+              required
             />
           </div>
           

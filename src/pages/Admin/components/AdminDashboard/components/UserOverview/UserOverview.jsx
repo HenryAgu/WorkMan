@@ -14,7 +14,6 @@ import searchIcon from "./images/search.svg";
 import avatar from "./images/avatar.png";
 
 const UserOverview = () => {
-
   const [customerList, setCustomerList] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +43,28 @@ const UserOverview = () => {
     handler();
   }, []);
 
+  // delete customer
+  const handleDeleteCustomer = async (customerId) => {
+    try{
+      const updatedCustomerList = customerList.filter((customer) => customer._id !== customerId);
+      setCustomerList(updatedCustomerList);
+      console.log(`${customerId} deleted, remaining: ${updatedCustomerList}`);
+
+      const token = localStorage.getItem("jwtToken");
+      await axios.delete(
+        `https://job-search-iogy.onrender.com/api/v1/user/delete-user/${customerId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+    }catch(err){
+      console.log(err.message);
+      setError(err);
+    }
+  };
 
   return (
     <>
@@ -86,38 +107,43 @@ const UserOverview = () => {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-    <div className="user-overview">
-      <div className="user-overview-header">
-        <h1>User Management System</h1>
-      </div>
-      <div className="search-box">
-        <img src={searchIcon} alt="search-icon" />
-        <input type="text" placeholder="Search for users" />
-      </div>
-      <div className="overview-section">
-        <div className="users-section">
-          <h3>Users</h3>
-          <div className="inner-overview-section">
-            {customerList.map((customers) => (
-              <div className="particular-user" key={customers.id}>
-                <div className="left-particular-user">
-                  <div className="avatar">
-                    <img src={avatar} alt="avatar" />
+        <div className="user-overview">
+          <div className="user-overview-header">
+            <h1>User Management System</h1>
+          </div>
+          <div className="search-box">
+            <img src={searchIcon} alt="search-icon" />
+            <input type="text" placeholder="Search for users" />
+          </div>
+          <div className="overview-section">
+            <div className="users-section">
+              <h3>Users</h3>
+              <div className="inner-overview-section">
+                {customerList.map((customers) => (
+                  <div className="particular-user" key={customers._id}>
+                    <div className="left-particular-user">
+                      <div className="avatar">
+                        <img src={avatar} alt="avatar" />
+                      </div>
+                      <div className="name-email">
+                        <h3>{customers.username}</h3>
+                        <p>{customers.email}</p>
+                      </div>
+                    </div>
+                    <div className="right-particular-user">
+                      <button
+                        onClick={() => handleDeleteCustomer(customers._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
-                  <div className="name-email">
-                    <h3>{customers.username}</h3>
-                    <p>{customers.email}</p>
-                  </div>
-                </div>
-                <div className="right-particular-user">
-                  <button>Delete</button>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>)}
+      )}
     </>
   );
 };
