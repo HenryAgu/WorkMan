@@ -6,11 +6,11 @@ import Filter from "./components/Filter/Filter";
 import Jobs from "./components/Jobs/Jobs";
 import EmailMe from "./components/EmailMe/EmailMe";
 
-const FindArtisanContent = () => {
+const FindArtisanContent = ({search, setSearch}) => {
   return (
     <div className="find-artisan-content">
         <Filter/>
-        <Jobs/>
+        <Jobs search={search} setSearch={setSearch}/>
         <EmailMe/>
     </div>
   )

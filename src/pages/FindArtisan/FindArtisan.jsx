@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // react-helmet
 import { Helmet } from "react-helmet";
@@ -13,6 +13,7 @@ import FindArtisanStat from "./components/FindArtisanStat/FindArtisanStat";
 import FindArtisanContent from "./components/FindArtisanContent/FindArtisanContent";
 
 const FindArtisan = () => {
+  const [search,setSearch] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("jwtToken");
   console.log(token);
@@ -60,9 +61,9 @@ const FindArtisan = () => {
       </Helmet>
       <div style={{ width: "90%", margin: "30px auto" }}>
         <FindArtisanHeader />
-        <FindArtisanSearch />
+        <FindArtisanSearch search={search} setSearch={setSearch}/>
         <FindArtisanStat />
-        <FindArtisanContent />
+        <FindArtisanContent search={search} setSearch={setSearch}/>
       </div>
     </>
   );

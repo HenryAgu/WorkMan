@@ -14,7 +14,7 @@ import locationIcon from "./images/location.svg";
 import timeIcon from "./images/Clock.svg";
 import { NavLink } from "react-router-dom";
 
-const Jobs = () => {
+const Jobs = ({ search, setSearch }) => {
   const [artisanInfo, setArtisanInfo] = useState([]);
   const [totalJobs, setTotalJobs] = useState(0);
   const [error, setError] = useState(null);
@@ -58,7 +58,7 @@ const Jobs = () => {
       ) : (
         <div className="artisan-jobs">
           <div className="artisan-jobs-header">
-            <h2>{totalJobs} Artisans</h2>
+            <h2>Workman Artisans</h2>
             <div className="filter-box">
               <div className="left-filter-box">
                 <img src={filterIcon} alt="filter" />
@@ -70,31 +70,37 @@ const Jobs = () => {
             </div>
           </div>
           <div className="artisan-jobs-section">
-            {artisanInfo.map((artisan) => (
-              <NavLink to={`/artisan-profile/${artisan._id}`}>
-                <div className="artisan-job-card" key={artisan._id}>
-                  <div className="left-artisan-job-card">
-                    <img src={artisanImage1} alt="artisan" />
-                  </div>
-                  <div className="right-artisan-job-card">
-                    <div className="artisan-role">
-                      <h3>{artisan.occupation}</h3>
-                      <div className="artisan-info">
-                        <div className="location">
-                          <img src={locationIcon} alt="location" />
-                          <p>{artisan.location}</p>
+            {artisanInfo
+              .filter((artisan) => {
+                return search.toLowerCase() === ""
+                  ? artisan
+                  : artisan.occupation.toLowerCase().includes(search);
+              })
+              .map((artisan) => (
+                <NavLink to={`/artisan-profile/${artisan._id}`}>
+                  <div className="artisan-job-card" key={artisan._id}>
+                    <div className="left-artisan-job-card">
+                      <img src={artisanImage1} alt="artisan" />
+                    </div>
+                    <div className="right-artisan-job-card">
+                      <div className="artisan-role">
+                        <h3>{artisan.occupation}</h3>
+                        <div className="artisan-info">
+                          <div className="location">
+                            <img src={locationIcon} alt="location" />
+                            <p>{artisan.location}</p>
+                          </div>
+                          <div className="duration">
+                            <img src={timeIcon} alt="time" />
+                            <p>Full time</p>
+                          </div>
                         </div>
-                        <div className="duration">
-                          <img src={timeIcon} alt="time" />
-                          <p>Full time</p>
-                        </div>
+                        <p>{artisan.bio}</p>
                       </div>
-                      <p>{artisan.bio}</p>
                     </div>
                   </div>
-                </div>
-              </NavLink>
-            ))}
+                </NavLink>
+              ))}
           </div>
         </div>
       )}

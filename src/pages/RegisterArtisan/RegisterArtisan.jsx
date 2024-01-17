@@ -18,6 +18,8 @@ import axios from "../../api/axios";
 
 const RegisterArtisan = () => {
   const [showPassword, setShowPassword] = useState("password");
+  
+
 
   const initialFormData = {
     fullName: "",
@@ -30,6 +32,9 @@ const RegisterArtisan = () => {
     bio: "",
   };
   const [formData, setFormData] = useState(initialFormData);
+  const formattedWhatsapp = `+234${formData.whatsapp.substring(1)}`;
+  const updatedFormData = { ...formData, whatsapp: formattedWhatsapp };
+
   const navigate = useNavigate();
 
   // API URL
@@ -49,11 +54,12 @@ const RegisterArtisan = () => {
     setShowPassword(!showPassword);
   };
 
+
   // submit form
   const handleArtisanRegistration = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(REGISTER_ARTISAN_URL, formData);
+      await axios.post(REGISTER_ARTISAN_URL, updatedFormData);
       setFormData(initialFormData);
     } catch (error) {
       toast.error(`Registration Failed! ${error.response.data.message}`, {
@@ -69,8 +75,10 @@ const RegisterArtisan = () => {
       console.error(error);
     }
     navigate("/login-artisan");
-    console.log({ formData });
   };
+
+
+
 
   return (
     <div className="register-artisan">
@@ -108,7 +116,8 @@ const RegisterArtisan = () => {
               name="whatsapp"
               value={formData.whatsapp}
               onChange={handleInputChange}
-              placeholder="080 0000 0000"
+              maxLength={11}
+              placeholder="80 0000 0000"
               required
             />
           </div>
@@ -117,9 +126,10 @@ const RegisterArtisan = () => {
             <input
               type="tel"
               id="phoneNumber"
-              name="whatsapp"
+              name="phone"
               value={formData.phone}
               onChange={handleInputChange}
+              maxLength={11}
               placeholder="080 0000 0000"
             />
           </div>
@@ -142,6 +152,7 @@ const RegisterArtisan = () => {
               value={formData.bio}
               onChange={handleInputChange}
               placeholder="Write a short description on your skill"
+              maxLength={250}
               required
             />
           </div>

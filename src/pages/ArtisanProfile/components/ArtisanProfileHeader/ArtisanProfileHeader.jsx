@@ -24,7 +24,7 @@ const ArtisanProfileHeader = () => {
 
   const params = useParams();
 
-  // Render artisan list
+  // Render artisan profile
   async function handler() {
     try {
       const token = localStorage.getItem("jwtToken");

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // stylesheet
 import "./style/FindArtisanHeader.scss";
 
@@ -12,10 +12,43 @@ import MenuIcon from "./images/menu.svg";
 
 // react icon
 import { AiOutlineClose } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+
+// axios
+import axios from "axios";
+
+import { NavLink, useParams } from "react-router-dom";
 
 const FindArtisanHeader = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
+
+  // Render artisan profile
+  async function handler() {
+    try {
+      const token = localStorage.getItem("jwtToken");
+      const res = await axios.get(
+        `https://job-search-iogy.onrender.com/api/v1/user/show-me`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // artisan information
+      // setData(res.data.job);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err.message);
+      setError(err);
+    }
+  }
+  useEffect(() => {
+    handler();
+  }, []);
+
   return (
     <div className="find-artisan-container">
       <div className="find-artisan-header">
@@ -51,15 +84,15 @@ const FindArtisanHeader = () => {
           />
           <div className="user-modal-header">
             <img src={UserAvatar} alt="avatar" />
-            <h4>Henry Agu</h4>
+            <h4>{data.fullName}</h4>
           </div>
-          <NavLink to="/user-setting">
+          {/* <NavLink to="/user-setting">
             <div className="log-out settings">
               <button>
                 <img src={settingIcon} alt="log out" /> <h4>Settings</h4>
               </button>
             </div>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/">
             <div className="log-out">
               <button>
