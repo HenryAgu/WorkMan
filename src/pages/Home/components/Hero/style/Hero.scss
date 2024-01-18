@@ -69,6 +69,7 @@
         border: 1px solid rgba(20, 20, 20, 0.1);
         background: $white-color;
         padding: 15px;
+        overflow: hidden;
 
         input {
           width: 100%;
@@ -96,6 +97,7 @@
         font-style: normal;
         font-weight: 500;
         transition: all 0.2s ease-in-out;
+        overflow: hidden;
 
         &:hover {
           background-color: $primary-color;
@@ -118,10 +120,11 @@
     .left-hero {
       .hero-search {
         .search-box {
-          width: 70%;
+          width: 60%;
         }
         button{
           padding: 17px 35px;
+          overflow: hidden;
         }
       }
     }
@@ -159,6 +162,8 @@
         height: 60px;
 
         .search-box {
+          width: 60%;
+          overflow: hidden;
           input {
             font-size: 10px;
           }
@@ -167,6 +172,7 @@
         button {
           padding: 18px 30px;
           font-size: 12px;
+          overflow: hidden;
         }
       }
     }
